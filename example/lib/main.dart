@@ -1,3 +1,4 @@
+import 'package:components_toolbox/components/rounded_buttons.dart';
 import 'package:components_toolbox/components_toolbox.dart';
 import 'package:flutter/material.dart';
 
@@ -69,7 +70,8 @@ class _ExampleAppState extends State<ExampleApp> {
                 ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-                  child: Container(
+                  clipBehavior: Clip.none,
+                  child: SizedBox(
                     height: containerSize + 50,
                     child: Row(
                       children: [
@@ -132,7 +134,8 @@ class _ExampleAppState extends State<ExampleApp> {
                 ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-                  child: Container(
+                  clipBehavior: Clip.none,
+                  child: SizedBox(
                     height: containerSize + 50,
                     child: Row(
                       children: [
@@ -200,6 +203,53 @@ class _ExampleAppState extends State<ExampleApp> {
                   "Obscure",
                   null,
                   obscureText: true,
+                ),
+                const SizedBox(height: 32),
+                const AutoText(
+                  'Rounded Button:',
+                  fontSize: 24,
+                ),
+                Center(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          RoundedButton(
+                            'Simple',
+                            onPressed: () {},
+                            width: 150,
+                          ),
+                          const SizedBox(width: 16),
+                          RoundedButton(
+                            'Shadow',
+                            onPressed: () {},
+                            shadow: CustomShadows.regularCentered,
+                            width: 150,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                RoundedButtonWithIcons(Icons.save,
+                    text: "With Icon", onPressed: () {}),
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Center(
+                      child: OutlinedRoundedButton(
+                        "Outlined",
+                        onPressed: () {},
+                        width: 200,
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    CircleButton(Icons.add, onPressed: () {}),
+                  ],
                 ),
                 const SizedBox(height: 16),
               ],
