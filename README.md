@@ -1,6 +1,6 @@
 # Components Toolbox
 
-A full static class to manage the database operations in Flutter using Firebase Realtime Database.
+A basic Toolbox for Flutter components with AppDelegate to manage the light and dark theme.
 
 ## Getting Started
 
