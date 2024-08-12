@@ -1,6 +1,6 @@
 name: components_toolbox
 description: A basic Toolbox for Flutter components with AppDelegate to manage the light and dark theme.
-repository: https://github.com/MoniKode-Mobile-Solutions/DatabaseUtils
+repository: https://github.com/VictorDelamonica/Components_Toolbox.git
 homepage: https://www.monikode.com
 version: 0.0.1
 

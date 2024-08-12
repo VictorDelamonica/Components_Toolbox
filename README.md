@@ -16,19 +16,14 @@ dependencies:
 Then, you need to import the class in your file:
 
 ```dart
-import 'package:database_utils/rounded_container.dart';
+import 'package:components_toolbox/components_toolbox.dart';
 ```
 
 ## Usage
+![light.png](assets%2Flight.png)
+![dark.png](assets%2Fdark.png)
 
-To use the class, you need to create an instance of it:
+The toolbox class has the following components:
 
-```dart
-DatabseReference db = DatabaseUtils.ref(); // get the reference of the root of the database
-```
-
-You can also use the following methods:
-
-```dart
-DatabseReference db = DatabaseUtils.ref("path/to/child/in/database"); // get the reference of the child in the database
-```
+- **Rounded Container**: A container with rounded corners.
+- **Text Field**: A text field with a label.

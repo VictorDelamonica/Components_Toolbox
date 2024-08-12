@@ -1,7 +1,7 @@
 import 'package:components_toolbox/utils/app_delegate.dart';
 import 'package:flutter/material.dart';
 
-class CustomTextFiled extends StatefulWidget {
+class CustomTextField extends StatefulWidget {
   final String label;
   final TextEditingController? controller;
   final void Function(String)? onSubmitted;
@@ -10,7 +10,7 @@ class CustomTextFiled extends StatefulWidget {
   final Color? backgroundColor;
   final Color? textColor;
 
-  const CustomTextFiled(
+  const CustomTextField(
     this.label,
     this.controller, {
     super.key,
@@ -22,10 +22,10 @@ class CustomTextFiled extends StatefulWidget {
   });
 
   @override
-  State<CustomTextFiled> createState() => _CustomTextFiledState();
+  State<CustomTextField> createState() => _CustomTextFiledState();
 }
 
-class _CustomTextFiledState extends State<CustomTextFiled> {
+class _CustomTextFiledState extends State<CustomTextField> {
   bool _obscureText = false;
   final AppDelegate _appDelegate = AppDelegate.getInstance();
 

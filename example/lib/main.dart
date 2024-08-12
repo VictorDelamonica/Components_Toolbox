@@ -1,5 +1,4 @@
 import 'package:components_toolbox/components_toolbox.dart';
-import 'package:components_toolbox/utils/app_delegate.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -195,9 +194,9 @@ class _ExampleAppState extends State<ExampleApp> {
                   'TextField:',
                   fontSize: 24,
                 ),
-                const CustomTextFiled("Simple", null),
+                const CustomTextField("Simple", null),
                 const SizedBox(height: 16),
-                const CustomTextFiled(
+                const CustomTextField(
                   "Obscure",
                   null,
                   obscureText: true,
