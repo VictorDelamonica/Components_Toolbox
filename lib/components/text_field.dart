@@ -63,13 +63,13 @@ class _CustomTextFiledState extends State<CustomTextField> {
             ),
             labelText: widget.label,
             labelStyle: TextStyle(
-              color: _appDelegate.getColor("Dark"),
+              color: _appDelegate.getColor("InvertedDark"),
             ),
             suffixIcon: widget.obscureText
                 ? IconButton(
                     icon: Icon(
                       _obscureText ? Icons.visibility : Icons.visibility_off,
-                      color: _appDelegate.getColor("Dark"),
+                      color: _appDelegate.getColor("InvertedDark"),
                     ),
                     onPressed: _toggleObscureText,
                   )

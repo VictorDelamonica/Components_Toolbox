@@ -8,6 +8,7 @@ class AutoText extends StatefulWidget {
   final int maxLines;
   final TextOverflow overflow;
   final double fontSize;
+  final Color? textColor;
 
   const AutoText(this.text,
       {super.key,
@@ -15,7 +16,8 @@ class AutoText extends StatefulWidget {
       this.textAlign = TextAlign.start,
       this.maxLines = 1,
       this.overflow = TextOverflow.ellipsis,
-      this.fontSize = 16});
+      this.fontSize = 16,
+      this.textColor});
 
   @override
   State<AutoText> createState() => _AutoTextState();
@@ -33,7 +35,7 @@ class _AutoTextState extends State<AutoText> {
           widget.text,
           style: widget.style ??
               TextStyle(
-                  color: _appDelegate.getColor("Text"),
+                  color: widget.textColor ?? _appDelegate.getColor("Text"),
                   fontSize: widget.fontSize),
           textAlign: widget.textAlign,
           maxLines: widget.maxLines,

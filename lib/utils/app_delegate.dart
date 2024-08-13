@@ -21,7 +21,7 @@ class AppDelegate {
     },
     "InvertedDark": {
       "light": CustomColors.dark,
-      "dark": CustomColors.light,
+      "dark": CustomColors.appBar,
     },
     "Light": {
       "light": CustomColors.light,

@@ -210,45 +210,48 @@ class _ExampleAppState extends State<ExampleApp> {
                   fontSize: 24,
                 ),
                 Center(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          RoundedButton(
-                            'Simple',
-                            onPressed: () {},
-                            width: 150,
-                          ),
-                          const SizedBox(width: 16),
-                          RoundedButton(
-                            'Shadow',
-                            onPressed: () {},
-                            shadow: CustomShadows.regularCentered,
-                            width: 150,
-                          ),
-                        ],
-                      ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        RoundedButton(
+                          text: 'Simple',
+                          onPressed: () {},
+                          width: MediaQuery.of(context).size.width / 2 - 32,
+                        ),
+                        RoundedButton(
+                          text: 'Shadow',
+                          onPressed: () {},
+                          shadow: CustomShadows.regularCentered,
+                          width: MediaQuery.of(context).size.width / 2 - 32,
+                        ),
+                      ],
                     ),
                   ),
                 ),
                 const SizedBox(height: 16),
-                RoundedButtonWithIcons(Icons.save,
-                    text: "With Icon", onPressed: () {}),
+                RoundedButtonWithIcons(
+                  Icons.save,
+                  text: "With Icon",
+                  onPressed: () {},
+                ),
                 const SizedBox(height: 16),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Center(
                       child: OutlinedRoundedButton(
                         "Outlined",
                         onPressed: () {},
-                        width: 200,
+                        width: 150,
                       ),
                     ),
-                    const SizedBox(width: 16),
-                    CircleButton(Icons.add, onPressed: () {}),
+                    CircleButton(
+                      icon: Icons.add,
+                      onPressed: () {},
+                    ),
+                    AutoTextButton("TextButton", onPressed: () {}),
                   ],
                 ),
                 const SizedBox(height: 16),
