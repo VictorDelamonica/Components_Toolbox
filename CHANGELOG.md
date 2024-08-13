@@ -1,3 +1,7 @@
+## 1.0.1
+
+* Add Doc for all the classes
+
 ## 1.0.0
 
 * Add Rounded Button's animations
