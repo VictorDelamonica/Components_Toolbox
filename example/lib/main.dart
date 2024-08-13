@@ -196,11 +196,10 @@ class _ExampleAppState extends State<ExampleApp> {
                   'TextField:',
                   fontSize: 24,
                 ),
-                const CustomTextField("Simple", null),
+                const CustomTextField("Simple"),
                 const SizedBox(height: 16),
                 const CustomTextField(
                   "Obscure",
-                  null,
                   obscureText: true,
                 ),
                 const SizedBox(height: 32),

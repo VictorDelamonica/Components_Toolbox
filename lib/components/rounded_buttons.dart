@@ -4,18 +4,42 @@
 import 'package:components_toolbox/components_toolbox.dart';
 import 'package:flutter/material.dart';
 
+/// A customizable rounded button widget with optional icon and shadow.
 class RoundedButton extends StatefulWidget {
+  /// The text to display on the button.
   final String text;
+
+  /// The callback function to execute when the button is pressed.
   final Function onPressed;
+
+  /// The width of the button.
   final double? width;
+
+  /// The height of the button.
   final double? height;
+
+  /// The background color of the button.
   final Color? color;
+
+  /// The color of the text on the button.
   final Color? textColor;
+
+  /// The icon to display on the button.
   final IconData? icon;
+
+  /// The size of the icon.
   final double? iconSize;
+
+  /// The color of the icon.
   final Color? iconColor;
+
+  /// The shadow to apply to the button.
   final ValueNotifier<BoxShadow>? shadow;
 
+  /// Creates a `RoundedButton` widget.
+  ///
+  /// The [onPressed] parameter must not be null.
+  /// The [text] parameter must not be empty if [icon] is null.
   const RoundedButton(
       {super.key,
       this.text = "",
@@ -36,10 +60,16 @@ class RoundedButton extends StatefulWidget {
 
 class _RoundedButtonState extends State<RoundedButton>
     with SingleTickerProviderStateMixin {
+  /// An instance of `AppDelegate` to manage app-wide settings.
   final AppDelegate _appDelegate = AppDelegate.getInstance();
 
+  /// Controller for the animation.
   late AnimationController _controller;
+
+  /// Animation for the button's color change.
   late Animation<double> _animation;
+
+  /// The current color of the button's container.
   var containerColor = Colors.transparent;
 
   @override
@@ -100,14 +130,26 @@ class _RoundedButtonState extends State<RoundedButton>
   }
 }
 
+/// A rounded button widget with an icon.
 class RoundedButtonWithIcons extends RoundedButton {
+  /// The icon to display on the button.
+  @override
   final IconData icon;
+
+  /// The size of the icon.
+  @override
   final double iconSize;
+
+  /// The color of the icon.
+  @override
   final Color? iconColor;
 
+  /// Creates a `RoundedButtonWithIcons` widget.
+  ///
+  /// The [icon] parameter must not be null.
   const RoundedButtonWithIcons(
     this.icon, {
-    Key? key,
+    super.key,
     required super.text,
     required super.onPressed,
     super.width,
@@ -176,10 +218,14 @@ class _RoundedButtonWithIconsState extends _RoundedButtonState {
   }
 }
 
+/// An outlined rounded button widget.
 class OutlinedRoundedButton extends RoundedButton {
+  /// Creates an `OutlinedRoundedButton` widget.
+  ///
+  /// The [text] and [onPressed] parameters must not be null.
   const OutlinedRoundedButton(
     String text, {
-    Key? key,
+    super.key,
     required super.onPressed,
     super.width,
     super.height,
@@ -251,10 +297,14 @@ class _OutlinedRoundedButtonState extends _RoundedButtonState {
   }
 }
 
+/// A circular button widget.
 class CircleButton extends RoundedButton {
+  /// Creates a `CircleButton` widget.
+  ///
+  /// The [onPressed] parameter must not be null.
   const CircleButton({
+    super.key,
     super.text,
-    Key? key,
     required super.onPressed,
     super.width,
     super.height,
@@ -316,7 +366,11 @@ class _CircleButtonState extends _RoundedButtonState {
   }
 }
 
+/// A button widget with auto text adjustment.
 class AutoTextButton extends RoundedButton {
+  /// Creates an `AutoTextButton` widget.
+  ///
+  /// The [text] and [onPressed] parameters must not be null.
   const AutoTextButton(
     String text, {
     super.key,

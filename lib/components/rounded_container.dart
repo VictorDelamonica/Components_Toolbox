@@ -2,17 +2,38 @@ import 'package:components_toolbox/utils/app_delegate.dart';
 import 'package:components_toolbox/utils/shadows.dart';
 import 'package:flutter/material.dart';
 
+/// A widget that displays a rounded container with customizable properties.
 class RoundedContainer extends StatefulWidget {
+  /// The child widget to display inside the container.
   final Widget child;
+
+  /// The height of the container.
   final int? height;
+
+  /// The width of the container.
   final int? width;
+
+  /// The border radius of the container.
   final double radius;
+
+  /// The background color of the container.
   final Color? color;
+
+  /// The padding inside the container.
   final double padding;
+
+  /// The margin outside the container.
   final double margin;
+
+  /// The shadow to apply to the container.
   final ValueNotifier<BoxShadow>? shadow;
+
+  /// The border to apply to the container.
   final Border? border;
 
+  /// Creates a `RoundedContainer` widget.
+  ///
+  /// The [child] parameter must not be null.
   const RoundedContainer({
     super.key,
     required this.child,
@@ -31,6 +52,7 @@ class RoundedContainer extends StatefulWidget {
 }
 
 class _RoundedContainerState extends State<RoundedContainer> {
+  /// An instance of `AppDelegate` to manage app-wide settings.
   final AppDelegate _appDelegate = AppDelegate.getInstance();
 
   @override
@@ -45,6 +67,7 @@ class _RoundedContainerState extends State<RoundedContainer> {
     super.dispose();
   }
 
+  /// Updates the shadows when the appearance changes.
   void _updateShadows() {
     CustomShadows.updateShadows();
   }
