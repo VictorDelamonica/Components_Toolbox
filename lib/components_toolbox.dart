@@ -3,7 +3,12 @@ library components_toolbox;
 /// region Components
 export './components/auto_text.dart' show AutoText;
 export './components/rounded_buttons.dart'
-    show RoundedButton, RoundedButtonWithIcons, CircleButton, AutoTextButton;
+    show
+        RoundedButton,
+        RoundedButtonWithIcons,
+        OutlinedRoundedButton,
+        CircleButton,
+        AutoTextButton;
 export './components/rounded_container.dart' show RoundedContainer;
 export './components/text_field.dart' show CustomTextField;
 
