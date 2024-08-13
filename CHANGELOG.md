@@ -1,3 +1,9 @@
+## 1.0.0
+
+* Add Rounded Button's animations
+* Add TextButton
+* Can now customize the colors used by the AppDelegate for theme and so on
+
 ## 0.0.2
 
 * Add Rounded Button
