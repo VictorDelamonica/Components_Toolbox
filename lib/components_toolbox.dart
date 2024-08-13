@@ -16,6 +16,7 @@ export './components/text_field.dart' show CustomTextField;
 
 /// region Utils
 export './utils/app_delegate.dart' show AppDelegate, Appearance;
+export './utils/colors.dart' show CustomColors, CustomColor;
 export './utils/shadows.dart' show CustomShadows;
 
 /// endregion

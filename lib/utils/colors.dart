@@ -3,31 +3,58 @@
 // Created by MoniK on 2024.
 import 'package:flutter/material.dart';
 
+enum CustomColor {
+  appBar,
+  background,
+  dark,
+  light,
+  appBarDark,
+  backgroundDark,
+  darkDark,
+  lightDark
+}
+
 class CustomColors {
-  static const Color appBar = Color.fromRGBO(211, 233, 231, 1);
-  static const Color background = Color.fromRGBO(244, 246, 245, 1);
-  static const Color dark = Color.fromRGBO(46, 125, 132, 1);
-  static const Color light = Color.fromRGBO(255, 255, 255, 1);
+  static Color appBar = const Color.fromRGBO(211, 233, 231, 1);
+  static Color background = const Color.fromRGBO(244, 246, 245, 1);
+  static Color dark = const Color.fromRGBO(46, 125, 132, 1);
+  static Color light = const Color.fromRGBO(255, 255, 255, 1);
 
-  static const Color appBarDark = Color.fromRGBO(68, 136, 130, 1);
-  static const Color backgroundDark = Color.fromRGBO(51, 51, 51, 1);
-  static const Color darkDark = Color.fromRGBO(33, 90, 95, 1);
-  static const Color lightDark = Color.fromRGBO(61, 61, 61, 1.0);
+  static Color appBarDark = const Color.fromRGBO(68, 136, 130, 1);
+  static Color backgroundDark = const Color.fromRGBO(51, 51, 51, 1);
+  static Color darkDark = const Color.fromRGBO(33, 90, 95, 1);
+  static Color lightDark = const Color.fromRGBO(61, 61, 61, 1.0);
 
-  static const Color darker = Color.fromRGBO(25, 65, 65, 1);
-  static const Color loading = Color.fromRGBO(0, 0, 0, 0.5);
-
-  static const Color red = Color.fromRGBO(137, 15, 15, 1.0);
-
-  static const Color circle = Color.fromRGBO(250, 250, 250, 1);
-  static const Color emotions = Color.fromRGBO(253, 242, 204, 1);
-  static const Color pain = Color.fromRGBO(234, 209, 220, 1);
-  static const Color rdv = Color.fromRGBO(239, 239, 239, 1);
-  static const Color sophro = Color.fromRGBO(217, 234, 211, 1);
-  static const Color talk = Color.fromRGBO(208, 224, 227, 1);
-  static const Color medic = Color.fromRGBO(252, 229, 205, 1);
-  static const Color papers = Color.fromRGBO(244, 204, 204, 1);
-  static const Color nutrition = Color.fromRGBO(201, 219, 248, 1);
+  static void setColor(CustomColor customColor, Color color) {
+    switch (customColor) {
+      case CustomColor.appBar:
+        appBar = color;
+        break;
+      case CustomColor.background:
+        background = color;
+        break;
+      case CustomColor.dark:
+        dark = color;
+        break;
+      case CustomColor.light:
+        light = color;
+        break;
+      case CustomColor.appBarDark:
+        appBarDark = color;
+        break;
+      case CustomColor.backgroundDark:
+        backgroundDark = color;
+        break;
+      case CustomColor.darkDark:
+        darkDark = color;
+        break;
+      case CustomColor.lightDark:
+        lightDark = color;
+        break;
+      default:
+        break;
+    }
+  }
 
 // static const int _circlePrimaryValue = 0xFFFAFAFA;
 //

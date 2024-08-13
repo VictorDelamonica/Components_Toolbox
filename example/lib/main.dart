@@ -1,9 +1,9 @@
 import 'package:components_toolbox/components_toolbox.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  AppDelegate.getInstance().setStoredAppearance();
+  await AppDelegate.getInstance().setStoredAppearance();
   runApp(const ExampleApp());
 }
 
