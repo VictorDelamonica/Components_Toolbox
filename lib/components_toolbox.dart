@@ -2,6 +2,7 @@ library components_toolbox;
 
 /// region Components
 export './components/auto_text.dart' show AutoText;
+export './components/markdown_text.dart' show MarkdownText;
 export './components/rounded_buttons.dart'
     show
         RoundedButton,

@@ -252,6 +252,16 @@ class _ExampleAppState extends State<ExampleApp> {
                     AutoTextButton("TextButton", onPressed: () {}),
                   ],
                 ),
+                const SizedBox(height: 24),
+                const AutoText(
+                  "Markdown Text:",
+                  fontSize: 24,
+                ),
+                const MarkdownText(
+                  paragraphs: [
+                    "Le **Lorem Ipsum** est simplement du faux texte employé dans la composition **et** la mise en page avant impression.",
+                  ],
+                ),
                 const SizedBox(height: 16),
               ],
             ),

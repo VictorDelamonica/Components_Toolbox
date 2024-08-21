@@ -24,6 +24,9 @@ class AutoText extends StatefulWidget {
   /// The font size of the text.
   final double fontSize;
 
+  /// The font family to use when painting the text.
+  final String fontFamily;
+
   /// The color to use when painting the text.
   final Color? textColor;
 
@@ -34,9 +37,10 @@ class AutoText extends StatefulWidget {
       {super.key,
       this.style,
       this.textAlign = TextAlign.start,
-      this.maxLines = 1,
+      this.maxLines = 100,
       this.overflow = TextOverflow.ellipsis,
       this.fontSize = 16,
+      this.fontFamily = "Roboto",
       this.textColor});
 
   @override
@@ -56,8 +60,10 @@ class _AutoTextState extends State<AutoText> {
           widget.text,
           style: widget.style ??
               TextStyle(
-                  color: widget.textColor ?? _appDelegate.getColor("Text"),
-                  fontSize: widget.fontSize),
+                color: widget.textColor ?? _appDelegate.getColor("Text"),
+                fontSize: widget.fontSize,
+                fontFamily: widget.fontFamily,
+              ),
           textAlign: widget.textAlign,
           maxLines: widget.maxLines,
           overflow: widget.overflow,
