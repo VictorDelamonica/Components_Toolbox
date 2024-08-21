@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await AppDelegate.getInstance().setStoredAppearance();
+
   runApp(const ExampleApp());
 }
 
@@ -17,6 +18,14 @@ class ExampleApp extends StatefulWidget {
 class _ExampleAppState extends State<ExampleApp> {
   final AppDelegate _appDelegate = AppDelegate.getInstance();
   final containerSize = 150;
+
+  @override
+  void initState() {
+    super.initState();
+    CustomColors.colorNotifier.addListener(() {
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +65,41 @@ class _ExampleAppState extends State<ExampleApp> {
                       },
                       child: const Text('Dark'),
                     ),
+                  ],
+                ),
+                const SizedBox(height: 32),
+                const AutoText(
+                  'Change custom colors:',
+                  fontSize: 24,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    ElevatedButton(
+                      onPressed: () {
+                        CustomColors.resetColors();
+                        setState(() {});
+                      },
+                      child: const Text('Reset'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        CustomColors.setColor(
+                            CustomColor.background, Colors.red);
+                        CustomColors.setColor(CustomColor.appBar, Colors.green);
+                        CustomColors.setColor(CustomColor.dark, Colors.blue);
+                        CustomColors.setColor(CustomColor.light, Colors.yellow);
+                        CustomColors.setColor(
+                            CustomColor.backgroundDark, Colors.purple);
+                        CustomColors.setColor(
+                            CustomColor.appBarDark, Colors.orange);
+                        CustomColors.setColor(
+                            CustomColor.darkDark, Colors.pink);
+                        CustomColors.setColor(
+                            CustomColor.lightDark, Colors.teal);
+                      },
+                      child: const Text('Change'),
+                    )
                   ],
                 ),
                 const SizedBox(height: 32),

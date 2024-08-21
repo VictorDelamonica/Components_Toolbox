@@ -1,4 +1,4 @@
-import 'package:components_toolbox/utils/app_delegate.dart';
+import 'package:components_toolbox/components_toolbox.dart';
 import 'package:flutter/material.dart';
 
 /// A custom text field widget with various customization options.
@@ -19,10 +19,10 @@ class CustomTextField extends StatefulWidget {
   final double borderRadius;
 
   /// The background color of the text field.
-  final Color? backgroundColor;
+  final ValueNotifier<Color>? backgroundColor;
 
   /// The color of the text inside the text field.
-  final Color? textColor;
+  final ValueNotifier<Color>? textColor;
 
   /// Creates a `CustomTextField` widget.
   ///
@@ -39,10 +39,10 @@ class CustomTextField extends StatefulWidget {
   });
 
   @override
-  State<CustomTextField> createState() => _CustomTextFiledState();
+  State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
-class _CustomTextFiledState extends State<CustomTextField> {
+class _CustomTextFieldState extends State<CustomTextField> {
   /// Whether the text is currently obscured.
   bool _obscureText = false;
 
@@ -53,6 +53,18 @@ class _CustomTextFiledState extends State<CustomTextField> {
   void initState() {
     super.initState();
     _obscureText = widget.obscureText;
+    CustomColors.colorNotifier.addListener(_updateColors);
+  }
+
+  @override
+  void dispose() {
+    CustomColors.colorNotifier.removeListener(_updateColors);
+    super.dispose();
+  }
+
+  /// Updates the state when `CustomColors` changes.
+  void _updateColors() {
+    setState(() {});
   }
 
   /// Toggles the obscure text state.
@@ -72,12 +84,12 @@ class _CustomTextFiledState extends State<CustomTextField> {
           obscureText: _obscureText,
           onSubmitted: widget.onSubmitted,
           style: TextStyle(
-            color: widget.textColor ?? _appDelegate.getColor("Text"),
+            color: widget.textColor?.value ?? _appDelegate.getColor("Text"),
           ),
           decoration: InputDecoration(
             filled: true,
             fillColor:
-                widget.backgroundColor ?? _appDelegate.getColor("Background"),
+                widget.backgroundColor?.value ?? _appDelegate.getColor("Light"),
             border: OutlineInputBorder(
               borderRadius:
                   BorderRadius.all(Radius.circular(widget.borderRadius)),

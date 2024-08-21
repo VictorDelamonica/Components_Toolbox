@@ -8,6 +8,10 @@ class AppDelegate {
   ValueNotifier<Appearance> appearanceNotifier =
       ValueNotifier<Appearance>(Appearance.light);
 
+  ValueNotifier<CustomColors> colorNotifier = ValueNotifier<CustomColors>(
+    CustomColors(),
+  );
+
   /// A map of color schemes for different UI elements in light and dark modes.
   Map<String, dynamic> colors = {
     "AppBar": {
@@ -44,7 +48,12 @@ class AppDelegate {
   static final AppDelegate _instance = AppDelegate._internal();
 
   /// Private constructor for singleton pattern.
-  AppDelegate._internal();
+  AppDelegate._internal() {
+    colorNotifier.addListener(_updateColors);
+    CustomColors.colorNotifier.addListener(() {
+      colorNotifier.value = CustomColors();
+    });
+  }
 
   /// Returns the singleton instance of `AppDelegate`.
   ///
@@ -102,6 +111,42 @@ class AppDelegate {
     appearanceNotifier.value = prefs.getString('appearance') == "dark"
         ? Appearance.dark
         : Appearance.light;
+  }
+
+  /// Updates the colors map when CustomColors changes.
+  void _updateColors() {
+    colors = {
+      "AppBar": {
+        "light": CustomColors.appBar,
+        "dark": CustomColors.appBarDark,
+      },
+      "Background": {
+        "light": CustomColors.background,
+        "dark": CustomColors.backgroundDark,
+      },
+      "Dark": {
+        "light": CustomColors.dark,
+        "dark": CustomColors.darkDark,
+      },
+      "InvertedDark": {
+        "light": CustomColors.dark,
+        "dark": CustomColors.appBar,
+      },
+      "Light": {
+        "light": CustomColors.light,
+        "dark": CustomColors.lightDark,
+      },
+      "Text": {
+        "light": Colors.black,
+        "dark": Colors.white,
+      },
+      "InvertedText": {
+        "light": Colors.white,
+        "dark": Colors.black,
+      },
+    };
+    appearanceNotifier.value = appearanceNotifier.value;
+    debugPrint("Colors updated");
   }
 }
 

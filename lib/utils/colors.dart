@@ -17,6 +17,8 @@ enum CustomColor {
 
 /// A class that defines custom colors used in the application.
 class CustomColors {
+  static ValueNotifier<CustomColors?> colorNotifier = ValueNotifier(null);
+
   /// Color for the app bar in light mode.
   static Color appBar = const Color.fromRGBO(211, 233, 231, 1);
 
@@ -45,13 +47,13 @@ class CustomColors {
   ///
   /// [customColor] The type of custom color to set.
   /// [color] The color to set for the given custom color type.
-  static void setColor(CustomColor customColor, Color color) {
-    switch (customColor) {
-      case CustomColor.appBar:
-        appBar = color;
-        break;
+  static void setColor(CustomColor colorType, Color color) {
+    switch (colorType) {
       case CustomColor.background:
         background = color;
+        break;
+      case CustomColor.appBar:
+        appBar = color;
         break;
       case CustomColor.dark:
         dark = color;
@@ -59,11 +61,11 @@ class CustomColors {
       case CustomColor.light:
         light = color;
         break;
-      case CustomColor.appBarDark:
-        appBarDark = color;
-        break;
       case CustomColor.backgroundDark:
         backgroundDark = color;
+        break;
+      case CustomColor.appBarDark:
+        appBarDark = color;
         break;
       case CustomColor.darkDark:
         darkDark = color;
@@ -71,8 +73,19 @@ class CustomColors {
       case CustomColor.lightDark:
         lightDark = color;
         break;
-      default:
-        break;
     }
+    colorNotifier.value = CustomColors();
+  }
+
+  static void resetColors() {
+    appBar = const Color.fromRGBO(211, 233, 231, 1);
+    background = const Color.fromRGBO(244, 246, 245, 1);
+    dark = const Color.fromRGBO(46, 125, 132, 1);
+    light = const Color.fromRGBO(255, 255, 255, 1);
+    appBarDark = const Color.fromRGBO(68, 136, 130, 1);
+    backgroundDark = const Color.fromRGBO(51, 51, 51, 1);
+    darkDark = const Color.fromRGBO(33, 90, 95, 1);
+    lightDark = const Color.fromRGBO(61, 61, 61, 1.0);
+    colorNotifier.value = null;
   }
 }
