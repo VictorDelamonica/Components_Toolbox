@@ -306,6 +306,22 @@ class _ExampleAppState extends State<ExampleApp> {
                     "Le **Lorem Ipsum** est simplement du faux texte employé dans la composition **et** la mise en page avant impression.",
                   ],
                 ),
+                const SizedBox(height: 24),
+                const AutoText(
+                  'Carousel:',
+                  fontSize: 24,
+                ),
+                const Carousel(
+                  images: [
+                    {"image": "assets/one.webp", "text": "Description 1"},
+                    {"image": "assets/two.jpg", "text": ""},
+                    {
+                      "image": "assets/three.jpg",
+                      "text": "The second has no text"
+                    },
+                    {"image": "assets/four.jpg", "text": "Other TEXT"},
+                  ],
+                ),
                 const SizedBox(height: 16),
               ],
             ),
