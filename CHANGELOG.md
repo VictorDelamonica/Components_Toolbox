@@ -1,3 +1,9 @@
+## 3.0.0
+
+* Add `CustomNavigationBar` (and floating)
+* Add `Loader` (embeddable on any component)
+* Fix `RoundedButton`'s animations
+
 ## 2.0.0
 
 * Add `MarkdownText` component
