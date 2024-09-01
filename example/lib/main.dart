@@ -72,6 +72,7 @@ class _HomeExampleState extends State<HomeExample>
       ),
       body: Loader(
         value: _testValue,
+        icon: Icons.handyman_rounded,
         page: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: SingleChildScrollView(
@@ -400,7 +401,7 @@ class _HomeExampleState extends State<HomeExample>
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     RoundedButton(
-                        text: "0",
+                        text: "Loading...",
                         width: MediaQuery.of(context).size.width / 2 - 32,
                         onPressed: () {
                           setState(() {
@@ -408,7 +409,7 @@ class _HomeExampleState extends State<HomeExample>
                           });
                         }),
                     RoundedButton(
-                        text: "1",
+                        text: "Loaded !!",
                         width: MediaQuery.of(context).size.width / 2 - 32,
                         onPressed: () {
                           setState(() {
@@ -417,8 +418,26 @@ class _HomeExampleState extends State<HomeExample>
                         })
                   ],
                 ),
+                const SizedBox(height: 16),
                 Loader(
-                  page: const RoundedContainer(child: AutoText("Loaded !!")),
+                  page: const Center(
+                      child: RoundedContainer(child: AutoText("Loaded !!"))),
+                  value: _value,
+                ),
+                const SizedBox(height: 16),
+                Loader(
+                  icon: Icons.handyman_rounded,
+                  color: Colors.red,
+                  page: const Center(
+                      child: RoundedContainer(child: AutoText("Loaded !!"))),
+                  value: _value,
+                ),
+                const SizedBox(height: 16),
+                Loader(
+                  imagePath: "assets/one.webp",
+                  imageSize: 50,
+                  page: const Center(
+                      child: RoundedContainer(child: AutoText("Loaded !!"))),
                   value: _value,
                 ),
                 const SizedBox(height: 16),
