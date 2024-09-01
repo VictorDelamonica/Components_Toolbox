@@ -12,7 +12,9 @@ enum CustomColor {
   appBarDark,
   backgroundDark,
   darkDark,
-  lightDark
+  lightDark,
+  grey,
+  greyDark,
 }
 
 /// A class that defines custom colors used in the application.
@@ -43,6 +45,10 @@ class CustomColors {
   /// Color for light elements in dark mode.
   static Color lightDark = const Color.fromRGBO(61, 61, 61, 1.0);
 
+  static Color grey = const Color.fromRGBO(200, 200, 200, 1);
+
+  static Color greyDark = const Color.fromRGBO(100, 100, 100, 1);
+
   /// Sets the color for a given custom color type.
   ///
   /// [customColor] The type of custom color to set.
@@ -72,6 +78,14 @@ class CustomColors {
         break;
       case CustomColor.lightDark:
         lightDark = color;
+        break;
+      case CustomColor.grey:
+        grey = color;
+        break;
+      case CustomColor.greyDark:
+        greyDark = color;
+        break;
+      default:
         break;
     }
     colorNotifier.value = CustomColors();

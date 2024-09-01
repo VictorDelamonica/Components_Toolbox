@@ -24,6 +24,11 @@ class CustomTextField extends StatefulWidget {
   /// The color of the text inside the text field.
   final ValueNotifier<Color>? textColor;
 
+  final TextInputType keyboardType;
+  final TextInputAction textInputAction;
+  final TextCapitalization textCapitalization;
+  final EdgeInsetsGeometry edgeInsetsGeometry;
+
   /// Creates a `CustomTextField` widget.
   ///
   /// The [label] parameter must not be null.
@@ -36,6 +41,10 @@ class CustomTextField extends StatefulWidget {
     this.backgroundColor,
     this.onSubmitted,
     this.textColor,
+    this.keyboardType = TextInputType.text,
+    this.textInputAction = TextInputAction.done,
+    this.textCapitalization = TextCapitalization.none,
+    this.edgeInsetsGeometry = const EdgeInsets.all(0.0),
   });
 
   @override
@@ -79,34 +88,40 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return ValueListenableBuilder<Appearance>(
       valueListenable: _appDelegate.appearanceNotifier,
       builder: (context, appearance, child) {
-        return TextField(
-          controller: widget.controller,
-          obscureText: _obscureText,
-          onSubmitted: widget.onSubmitted,
-          style: TextStyle(
-            color: widget.textColor?.value ?? _appDelegate.getColor("Text"),
-          ),
-          decoration: InputDecoration(
-            filled: true,
-            fillColor:
-                widget.backgroundColor?.value ?? _appDelegate.getColor("Light"),
-            border: OutlineInputBorder(
-              borderRadius:
-                  BorderRadius.all(Radius.circular(widget.borderRadius)),
+        return Padding(
+          padding: widget.edgeInsetsGeometry,
+          child: TextField(
+            controller: widget.controller,
+            obscureText: _obscureText,
+            onSubmitted: widget.onSubmitted,
+            keyboardType: widget.keyboardType,
+            textInputAction: widget.textInputAction,
+            textCapitalization: widget.textCapitalization,
+            style: TextStyle(
+              color: widget.textColor?.value ?? _appDelegate.getColor("Text"),
             ),
-            labelText: widget.label,
-            labelStyle: TextStyle(
-              color: _appDelegate.getColor("InvertedDark"),
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: widget.backgroundColor?.value ??
+                  _appDelegate.getColor("Light"),
+              border: OutlineInputBorder(
+                borderRadius:
+                    BorderRadius.all(Radius.circular(widget.borderRadius)),
+              ),
+              labelText: widget.label,
+              labelStyle: TextStyle(
+                color: _appDelegate.getColor("InvertedDark"),
+              ),
+              suffixIcon: widget.obscureText
+                  ? IconButton(
+                      icon: Icon(
+                        _obscureText ? Icons.visibility : Icons.visibility_off,
+                        color: _appDelegate.getColor("InvertedDark"),
+                      ),
+                      onPressed: _toggleObscureText,
+                    )
+                  : null,
             ),
-            suffixIcon: widget.obscureText
-                ? IconButton(
-                    icon: Icon(
-                      _obscureText ? Icons.visibility : Icons.visibility_off,
-                      color: _appDelegate.getColor("InvertedDark"),
-                    ),
-                    onPressed: _toggleObscureText,
-                  )
-                : null,
           ),
         );
       },

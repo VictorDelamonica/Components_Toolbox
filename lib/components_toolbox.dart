@@ -4,6 +4,8 @@ library components_toolbox;
 export './components/auto_text.dart' show AutoText;
 export './components/carousel.dart' show Carousel;
 export './components/markdown_text.dart' show MarkdownText;
+export './components/navigation_bar.dart'
+    show CustomNavigationBar, NavigationBarStyle;
 export './components/rounded_buttons.dart'
     show
         RoundedButton,

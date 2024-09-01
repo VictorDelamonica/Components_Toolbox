@@ -12,10 +12,10 @@ class Carousel extends StatefulWidget {
   final List<Map> images;
 
   /// The height of the main carousel.
-  final int mainHeight;
+  final double mainHeight;
 
   /// The height of the preview carousel.
-  final int previewHeight;
+  final double previewHeight;
 
   /// The background color of the carousel.
   final Color? backgroundColor;
@@ -53,8 +53,8 @@ class Carousel extends StatefulWidget {
     required this.images,
     this.backgroundColor,
     this.currentPageIndicatorColor,
-    this.mainHeight = 400,
-    this.previewHeight = 60,
+    this.mainHeight = 400.0,
+    this.previewHeight = 60.0,
     this.radius = 16,
     this.previewRadius = 16,
     this.padding = 8,

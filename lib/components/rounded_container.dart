@@ -8,10 +8,10 @@ class RoundedContainer extends StatefulWidget {
   final Widget child;
 
   /// The height of the container.
-  final int? height;
+  final double? height;
 
   /// The width of the container.
-  final int? width;
+  final double? width;
 
   /// The border radius of the container.
   final double radius;
@@ -78,8 +78,8 @@ class _RoundedContainerState extends State<RoundedContainer> {
       valueListenable: widget.shadow ?? CustomShadows.regular,
       builder: (context, shadow, child) {
         return Container(
-          height: widget.height?.toDouble(),
-          width: widget.width?.toDouble(),
+          height: widget.height,
+          width: widget.width,
           padding: EdgeInsets.all(widget.padding),
           margin: EdgeInsets.all(widget.margin),
           decoration: BoxDecoration(

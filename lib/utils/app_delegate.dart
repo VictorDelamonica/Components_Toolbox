@@ -34,6 +34,10 @@ class AppDelegate {
       "light": CustomColors.light,
       "dark": CustomColors.lightDark,
     },
+    "InvertedLight": {
+      "light": CustomColors.lightDark,
+      "dark": CustomColors.light,
+    },
     "Text": {
       "light": Colors.black,
       "dark": Colors.white,
@@ -41,6 +45,10 @@ class AppDelegate {
     "InvertedText": {
       "light": Colors.white,
       "dark": Colors.black,
+    },
+    "Grey": {
+      "light": CustomColors.grey,
+      "dark": CustomColors.greyDark,
     },
   };
 
@@ -135,6 +143,10 @@ class AppDelegate {
       "Light": {
         "light": CustomColors.light,
         "dark": CustomColors.lightDark,
+      },
+      "InvertedLight": {
+        "light": CustomColors.lightDark,
+        "dark": CustomColors.light,
       },
       "Text": {
         "light": Colors.black,
