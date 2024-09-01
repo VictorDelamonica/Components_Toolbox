@@ -3,6 +3,7 @@ library components_toolbox;
 /// region Components
 export './components/auto_text.dart' show AutoText;
 export './components/carousel.dart' show Carousel;
+export './components/loader.dart' show Loader;
 export './components/markdown_text.dart' show MarkdownText;
 export './components/navigation_bar.dart'
     show CustomNavigationBar, NavigationBarStyle;
