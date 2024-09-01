@@ -63,70 +63,37 @@ class _RoundedButtonState extends State<RoundedButton>
   /// An instance of `AppDelegate` to manage app-wide settings.
   final AppDelegate _appDelegate = AppDelegate.getInstance();
 
-  /// Controller for the animation.
-  late AnimationController _controller;
-
-  /// Animation for the button's color change.
-  late Animation<double> _animation;
-
   /// The current color of the button's container.
   var containerColor = Colors.transparent;
 
   @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 150),
-      vsync: this,
-    )..addListener(() {
-        setState(() {
-          containerColor = _appDelegate
-              .getColor("InvertedDark")
-              .withOpacity(_animation.value);
-        });
-      });
-    _animation = Tween<double>(begin: 0.0, end: 0.4).animate(_controller);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _controller.forward().then((_) {
-          _controller.reverse();
-        });
-        widget.onPressed();
-      },
-      onLongPress: () {
-        _controller.forward();
-      },
-      onLongPressEnd: (details) {
-        _controller.reverse();
-      },
-      child: Stack(children: [
-        Container(
-          width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
-          height: widget.height ?? 48,
-          decoration: BoxDecoration(
-              color: widget.color ?? _appDelegate.getColor("AppBar"),
-              borderRadius: BorderRadius.circular(24),
-              boxShadow: widget.shadow != null ? [widget.shadow!.value] : []),
-          child: Center(
-            child: AutoText(
-              widget.text,
+    return Stack(children: [
+      Container(
+        width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
+        height: widget.height ?? 48,
+        decoration: BoxDecoration(
+          color: widget.color ?? _appDelegate.getColor("AppBar"),
+          borderRadius: BorderRadius.circular(24),
+          boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(24),
+            onTap: () {
+              widget.onPressed();
+            },
+            child: Center(
+              child: AutoText(
+                widget.text,
+                textColor: widget.textColor ?? _appDelegate.getColor("Text"),
+              ),
             ),
           ),
         ),
-        Container(
-          width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
-          height: widget.height ?? 48,
-          decoration: BoxDecoration(
-            color: containerColor,
-            borderRadius: BorderRadius.circular(24),
-          ),
-        )
-      ]),
-    );
+      )
+    ]);
   }
 }
 
@@ -168,28 +135,21 @@ class RoundedButtonWithIcons extends RoundedButton {
 class _RoundedButtonWithIconsState extends _RoundedButtonState {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _controller.forward().then((_) {
-          _controller.reverse();
-        });
-        widget.onPressed();
-      },
-      onLongPress: () {
-        _controller.forward();
-      },
-      onLongPressEnd: (details) {
-        _controller.reverse();
-      },
-      child: Stack(children: [
-        Container(
-          width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
-          height: widget.height ?? 48,
-          decoration: BoxDecoration(
-            color: widget.color ?? _appDelegate.getColor("AppBar"),
-            borderRadius: BorderRadius.circular(24),
-            boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
-          ),
+    return Container(
+      width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
+      height: widget.height ?? 48,
+      decoration: BoxDecoration(
+        color: widget.color ?? _appDelegate.getColor("AppBar"),
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            widget.onPressed();
+          },
+          borderRadius: BorderRadius.circular(24),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -205,15 +165,7 @@ class _RoundedButtonWithIconsState extends _RoundedButtonState {
             ],
           ),
         ),
-        Container(
-          width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
-          height: widget.height ?? 48,
-          decoration: BoxDecoration(
-            color: containerColor,
-            borderRadius: BorderRadius.circular(24),
-          ),
-        )
-      ]),
+      ),
     );
   }
 }
@@ -244,31 +196,24 @@ class OutlinedRoundedButton extends RoundedButton {
 class _OutlinedRoundedButtonState extends _RoundedButtonState {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _controller.forward().then((_) {
-          _controller.reverse();
-        });
-        widget.onPressed();
-      },
-      onLongPress: () {
-        _controller.forward();
-      },
-      onLongPressEnd: (details) {
-        _controller.reverse();
-      },
-      child: Stack(children: [
-        Container(
-          width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
-          height: widget.height ?? 48,
-          decoration: BoxDecoration(
-            color: _appDelegate.getColor("Background"),
-            borderRadius: BorderRadius.circular(24),
-            boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
-            border: Border.all(
-              color: widget.color ?? _appDelegate.getColor("Text"),
-            ),
-          ),
+    return Container(
+      width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
+      height: widget.height ?? 48,
+      decoration: BoxDecoration(
+        color: _appDelegate.getColor("Background"),
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
+        border: Border.all(
+          color: widget.color ?? _appDelegate.getColor("Text"),
+        ),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            widget.onPressed();
+          },
+          borderRadius: BorderRadius.circular(24),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -284,15 +229,7 @@ class _OutlinedRoundedButtonState extends _RoundedButtonState {
             ],
           ),
         ),
-        Container(
-          width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
-          height: widget.height ?? 48,
-          decoration: BoxDecoration(
-            color: containerColor,
-            borderRadius: BorderRadius.circular(24),
-          ),
-        )
-      ]),
+      ),
     );
   }
 }
@@ -323,28 +260,21 @@ class CircleButton extends RoundedButton {
 class _CircleButtonState extends _RoundedButtonState {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _controller.forward().then((_) {
-          _controller.reverse();
-        });
-        widget.onPressed();
-      },
-      onLongPress: () {
-        _controller.forward();
-      },
-      onLongPressEnd: (details) {
-        _controller.reverse();
-      },
-      child: Stack(children: [
-        Container(
-          width: widget.width ?? 48,
-          height: widget.height ?? 48,
-          decoration: BoxDecoration(
-            color: widget.color ?? _appDelegate.getColor("AppBar"),
-            borderRadius: BorderRadius.circular(24),
-            boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
-          ),
+    return Container(
+      width: widget.width ?? 48,
+      height: widget.height ?? 48,
+      decoration: BoxDecoration(
+        color: widget.color ?? _appDelegate.getColor("AppBar"),
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            widget.onPressed();
+          },
+          borderRadius: BorderRadius.circular(24),
           child: Center(
             child: Icon(
               widget.icon,
@@ -353,15 +283,7 @@ class _CircleButtonState extends _RoundedButtonState {
             ),
           ),
         ),
-        Container(
-          width: widget.width ?? 48,
-          height: widget.height ?? 48,
-          decoration: BoxDecoration(
-            color: containerColor,
-            borderRadius: BorderRadius.circular(24),
-          ),
-        )
-      ]),
+      ),
     );
   }
 }
@@ -392,50 +314,26 @@ class AutoTextButton extends RoundedButton {
 class _AutoTextButtonState extends _RoundedButtonState {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _controller.forward().then((_) {
-          _controller.reverse();
-        });
-        widget.onPressed();
-      },
-      onLongPress: () {
-        _controller.forward();
-      },
-      onLongPressEnd: (details) {
-        _controller.reverse();
-      },
-      child: Stack(
-        children: [
-          Container(
-            height: widget.height ?? 24,
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24),
-              boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
-            ),
-            child: AutoText(
-              widget.text,
-              textColor:
-                  widget.textColor ?? _appDelegate.getColor("InvertedDark"),
-            ),
+    return Container(
+      height: widget.height ?? 24,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            widget.onPressed();
+          },
+          borderRadius: BorderRadius.circular(24),
+          child: AutoText(
+            widget.text,
+            textColor:
+                widget.textColor ?? _appDelegate.getColor("InvertedDark"),
           ),
-          Container(
-            height: widget.height ?? 24,
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            decoration: BoxDecoration(
-              color: containerColor,
-              borderRadius: BorderRadius.circular(24),
-            ),
-            child: Text(
-              widget.text,
-              style: const TextStyle(
-                fontSize: 16,
-                color: Colors.transparent,
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

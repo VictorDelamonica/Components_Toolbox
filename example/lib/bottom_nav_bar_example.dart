@@ -62,7 +62,7 @@ class _BottomNavBarExampleState extends State<BottomNavBarExample>
           pages: _pages,
           labels: _labels,
           icons: _icons,
-          selectedColors: [Colors.red, Colors.green, Colors.blue],
+          selectedColors: const [Colors.red, Colors.green, Colors.blue],
           unselectedColors: AppDelegate.getInstance().getColor("Text"),
         ));
   }

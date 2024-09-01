@@ -106,7 +106,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
           items: List.generate(
             widget.pages.length,
             (index) => BottomNavigationBarItem(
-              icon: Icon(Icons.circle),
+              icon: const Icon(Icons.circle),
               label: widget.labels![index],
             ),
           ),
