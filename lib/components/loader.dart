@@ -1,19 +1,48 @@
+// All rights reserved
+// Monikode Mobile Solutions
+// Created by MoniK on 2024.
 import 'dart:async';
 
 import 'package:components_toolbox/components_toolbox.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+/// A widget that displays a loading indicator with a fade transition to a page.
+///
+/// The `Loader` widget shows a loading indicator (either an icon, image, or
+/// circular progress indicator) and transitions to the provided page with a
+/// fade effect when the `value` changes.
 class Loader extends StatefulWidget {
+  /// A [ValueListenable] that controls the visibility of the loading indicator.
   final ValueListenable<bool> value;
+
+  /// The page to display after the loading indicator.
   final Widget page;
+
+  /// The color of the loading indicator.
   final Color? color;
+
+  /// The duration of the fade transition in milliseconds.
   final int milliseconds;
+
+  /// The curve of the fade transition animation.
   final Curve curve;
+
+  /// The icon to display as the loading indicator.
   final IconData? icon;
+
+  /// The size of the icon.
   final double? iconSize;
+
+  /// The path to the image to display as the loading indicator.
   final String? imagePath;
+
+  /// The size of the image.
   final double? imageSize;
+
+  /// Creates a [Loader] widget.
+  ///
+  /// The [value] and [page] parameters are required.
   const Loader({
     super.key,
     required this.value,
@@ -32,11 +61,22 @@ class Loader extends StatefulWidget {
 }
 
 class _LoaderState extends State<Loader> with TickerProviderStateMixin {
+  /// The animation controller for the fade transition.
   late AnimationController _controller;
+
+  /// The animation for the fade transition.
   late Animation<double> _animation;
+
+  /// The animation controller for the rotation animation.
   late AnimationController _rotationController;
+
+  /// The animation for the rotation.
   late Animation<double> _rotationAnimation;
+
+  /// The height of the image.
   late double _height = 200.0;
+
+  /// The width of the image.
   late double _width = 200.0;
 
   @override
@@ -79,6 +119,7 @@ class _LoaderState extends State<Loader> with TickerProviderStateMixin {
     widget.value.addListener(_handleValueChange);
   }
 
+  /// Handles changes to the [value] and updates the animation.
   void _handleValueChange() {
     if (widget.value.value) {
       _controller.forward();

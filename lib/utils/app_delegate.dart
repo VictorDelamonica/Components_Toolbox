@@ -1,3 +1,6 @@
+// All rights reserved
+// Monikode Mobile Solutions
+// Created by MoniK on 2024.
 import 'package:components_toolbox/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';

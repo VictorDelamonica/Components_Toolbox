@@ -1,10 +1,11 @@
 // All rights reserved
-// Monikode Mobile Solutions and Draw Your Fight
+// Monikode Mobile Solutions
 // Created by MoniK on 2024.
 
 import 'package:components_toolbox/components_toolbox.dart';
 import 'package:flutter/material.dart';
 
+/// Enum representing different styles for the navigation bar.
 enum NavigationBarStyle {
   classic,
   icons,
@@ -12,26 +13,46 @@ enum NavigationBarStyle {
   images,
 }
 
+/// A custom navigation bar widget that supports different styles.
 class CustomNavigationBar extends StatefulWidget {
+  /// The style of the navigation bar.
   final NavigationBarStyle style;
+
+  /// The list of pages to display.
   final List<Widget> pages;
+
+  /// The current index of the selected page.
   final ValueNotifier<int> currentIndex;
+
+  /// The list of icons for the navigation items (optional).
   final List<IconData>? icons;
+
+  /// The list of labels for the navigation items (optional).
   final List<String>? labels;
+
+  /// The list of colors for the selected items (optional).
   final List<Color>? selectedColors;
+
+  /// The color for unselected items (optional).
   final Color? unselectedColors;
+
+  /// The background color of the navigation bar (optional).
   final Color? backgroundColor;
-  const CustomNavigationBar(
-      {super.key,
-      this.style = NavigationBarStyle.classic,
-      required this.pages,
-      this.icons,
-      this.labels,
-      this.selectedColors,
-      required this.currentIndex,
-      this.unselectedColors,
-      this.backgroundColor})
-      : assert(pages.length > 1 &&
+
+  /// Creates a [CustomNavigationBar] widget.
+  ///
+  /// The [pages] and [currentIndex] parameters are required.
+  const CustomNavigationBar({
+    super.key,
+    this.style = NavigationBarStyle.classic,
+    required this.pages,
+    this.icons,
+    this.labels,
+    this.selectedColors,
+    required this.currentIndex,
+    this.unselectedColors,
+    this.backgroundColor,
+  }) : assert(pages.length > 1 &&
             (style == NavigationBarStyle.classic
                 ? icons != null && labels != null
                 : (style == NavigationBarStyle.icons
@@ -128,15 +149,35 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   }
 }
 
+/// A floating bottom navigation bar widget that supports different styles.
 class FloatingBottomNavigationBar extends StatefulWidget {
+  /// The list of pages to display.
   final List<Widget> pages;
+
+  /// The current index of the selected page.
   final ValueNotifier<int> currentPage;
+
+  /// The style of the navigation bar.
   final NavigationBarStyle style;
+
+  /// The height of the navigation bar (optional).
   final double? height;
+
+  /// The list of colors for the navigation items (optional).
   final List<Color>? color;
+
+  /// The list of labels for the navigation items (optional).
   final List<String>? labels;
+
+  /// The list of icons for the navigation items (optional).
   final List<IconData>? icons;
+
+  /// Whether to display an app bar (optional).
   final bool withAppBar;
+
+  /// Creates a [FloatingBottomNavigationBar] widget.
+  ///
+  /// The [pages] and [currentPage] parameters are required.
   const FloatingBottomNavigationBar({
     super.key,
     this.style = NavigationBarStyle.classic,

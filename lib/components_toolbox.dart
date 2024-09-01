@@ -1,3 +1,6 @@
+// All rights reserved
+// Monikode Mobile Solutions
+// Created by MoniK on 2024.
 library components_toolbox;
 
 /// region Components
