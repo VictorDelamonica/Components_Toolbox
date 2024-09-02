@@ -10,7 +10,7 @@ To use this class, you need to add the following dependency in your pubspec.yaml
 dependencies:
   flutter:
     sdk: flutter
-  components_toolbox: ^1.0.1
+  components_toolbox: ^3.0.1
 ```
 
 Then, you need to import the class in your file:
@@ -28,3 +28,9 @@ The toolbox class has the following components:
 - **Rounded Container**: A container with rounded corners.
 - **Text Field**: A text field with a label.
 - **Rounded Button**: A button with a label (and an icon).
+- **Text Button**: A button with a label.
+- **Markdown Text**: A text that can parse markdown.
+- **Carousel**: A carousel that can be embedded on any component.
+- **Custom Navigation Bar**: A custom navigation bar with a title and a back button.
+- **Loader**: A loader that can be embedded on any component.
+

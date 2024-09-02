@@ -1,3 +1,7 @@
+## 3.0.1
+
+* Fix README.md
+
 ## 3.0.0
 
 * Add `CustomNavigationBar` (and floating)
