@@ -388,7 +388,16 @@ class _HomeExampleState extends State<HomeExample>
                         ],
                         currentPage: _currentPage,
                         style: NavigationBarStyle.classic,
-                        icons: const [Icons.home, Icons.search, Icons.settings],
+                        icons: const [
+                          Icons.home_outlined,
+                          Icons.search_outlined,
+                          Icons.settings_outlined
+                        ],
+                        selectedIcons: const [
+                          Icons.home,
+                          Icons.search,
+                          Icons.settings
+                        ],
                         labels: const ['Home', 'Search', 'Settings'],
                       ),
                     ),

@@ -172,6 +172,9 @@ class FloatingBottomNavigationBar extends StatefulWidget {
   /// The list of icons for the navigation items (optional).
   final List<IconData>? icons;
 
+  /// The list of images when the page is displayed for the navigation items (optional).
+  final List<IconData>? selectedIcons;
+
   /// Whether to display an app bar (optional).
   final bool withAppBar;
 
@@ -188,6 +191,7 @@ class FloatingBottomNavigationBar extends StatefulWidget {
     this.labels,
     this.icons,
     this.withAppBar = true,
+    this.selectedIcons,
   }) : assert(pages.length > 1 &&
             (style == NavigationBarStyle.classic
                 ? icons != null && labels != null
@@ -264,7 +268,10 @@ class _FloatingBottomNavigationBarState
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Icon(
-                                      widget.icons![index],
+                                      widget.selectedIcons != null &&
+                                              widget.currentPage.value == index
+                                          ? widget.selectedIcons![index]
+                                          : widget.icons![index],
                                       color: widget.currentPage.value == index
                                           ? widget.color != null
                                               ? widget.color![index]
