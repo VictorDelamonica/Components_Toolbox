@@ -1,3 +1,7 @@
+## 3.0.2
+
+* Add selectedIcons to the Floating Nav bar
+
 ## 3.0.1
 
 * Fix README.md
