@@ -18,6 +18,9 @@ class RoundedButton extends StatefulWidget {
   /// The height of the button.
   final double? height;
 
+  /// The margin of the button.
+  final double margin;
+
   /// The background color of the button.
   final Color? color;
 
@@ -51,7 +54,8 @@ class RoundedButton extends StatefulWidget {
       this.icon,
       this.iconSize,
       this.iconColor,
-      this.shadow})
+      this.shadow,
+      this.margin = 0.0})
       : assert(text != "" || icon != null);
 
   @override
@@ -72,6 +76,7 @@ class _RoundedButtonState extends State<RoundedButton>
       Container(
         width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
         height: widget.height ?? 48,
+        margin: EdgeInsets.all(widget.margin),
         decoration: BoxDecoration(
           color: widget.color ?? _appDelegate.getColor("AppBar"),
           borderRadius: BorderRadius.circular(24),
@@ -138,6 +143,7 @@ class _RoundedButtonWithIconsState extends _RoundedButtonState {
     return Container(
       width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
       height: widget.height ?? 48,
+      margin: EdgeInsets.all(widget.margin),
       decoration: BoxDecoration(
         color: widget.color ?? _appDelegate.getColor("AppBar"),
         borderRadius: BorderRadius.circular(24),
@@ -199,6 +205,7 @@ class _OutlinedRoundedButtonState extends _RoundedButtonState {
     return Container(
       width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
       height: widget.height ?? 48,
+      margin: EdgeInsets.all(widget.margin),
       decoration: BoxDecoration(
         color: _appDelegate.getColor("Background"),
         borderRadius: BorderRadius.circular(24),
@@ -263,6 +270,7 @@ class _CircleButtonState extends _RoundedButtonState {
     return Container(
       width: widget.width ?? 48,
       height: widget.height ?? 48,
+      margin: EdgeInsets.all(widget.margin),
       decoration: BoxDecoration(
         color: widget.color ?? _appDelegate.getColor("AppBar"),
         borderRadius: BorderRadius.circular(24),
@@ -317,6 +325,7 @@ class _AutoTextButtonState extends _RoundedButtonState {
     return Container(
       height: widget.height ?? 24,
       padding: const EdgeInsets.symmetric(horizontal: 8),
+      margin: EdgeInsets.all(widget.margin),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
