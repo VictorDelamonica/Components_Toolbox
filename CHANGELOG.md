@@ -1,6 +1,7 @@
 ## 3.1.1
 
 * Fix selectedIcons not being displayed
+* Add margin in the `RoundedButton` component
 
 ## 3.0.2
 
