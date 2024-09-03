@@ -1,3 +1,7 @@
+## 3.1.1
+
+* Fix selectedIcons not being displayed
+
 ## 3.0.2
 
 * Add selectedIcons to the Floating Nav bar

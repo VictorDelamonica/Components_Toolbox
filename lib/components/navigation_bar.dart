@@ -27,6 +27,9 @@ class CustomNavigationBar extends StatefulWidget {
   /// The list of icons for the navigation items (optional).
   final List<IconData>? icons;
 
+  // The list of icons selected for the navigation items (optional).
+  final List<IconData>? selectedIcons;
+
   /// The list of labels for the navigation items (optional).
   final List<String>? labels;
 
@@ -52,6 +55,7 @@ class CustomNavigationBar extends StatefulWidget {
     required this.currentIndex,
     this.unselectedColors,
     this.backgroundColor,
+    this.selectedIcons,
   }) : assert(pages.length > 1 &&
             (style == NavigationBarStyle.classic
                 ? icons != null && labels != null
@@ -81,7 +85,12 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
           items: List.generate(
             widget.pages.length,
             (index) => BottomNavigationBarItem(
-              icon: Icon(widget.icons![index]),
+              icon: Icon(
+                widget.selectedIcons != null &&
+                        widget.currentIndex.value == index
+                    ? widget.selectedIcons![index]
+                    : widget.icons![index],
+              ),
               label: widget.labels![index],
             ),
           ),
@@ -103,7 +112,12 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
           items: List.generate(
             widget.pages.length,
             (index) => BottomNavigationBarItem(
-              icon: Icon(widget.icons![index]),
+              icon: Icon(
+                widget.selectedIcons != null &&
+                        widget.currentIndex.value == index
+                    ? widget.selectedIcons![index]
+                    : widget.icons![index],
+              ),
               label: '',
             ),
           ),
@@ -127,7 +141,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
           items: List.generate(
             widget.pages.length,
             (index) => BottomNavigationBarItem(
-              icon: const Icon(Icons.circle),
+              icon: const Icon(Icons.circle, size: 0),
               label: widget.labels![index],
             ),
           ),
@@ -166,6 +180,9 @@ class FloatingBottomNavigationBar extends StatefulWidget {
   /// The list of colors for the navigation items (optional).
   final List<Color>? color;
 
+  //This is the background color of the navigation bar (optional).
+  final Color? backgroundColor;
+
   /// The list of labels for the navigation items (optional).
   final List<String>? labels;
 
@@ -188,6 +205,7 @@ class FloatingBottomNavigationBar extends StatefulWidget {
     required this.pages,
     required this.currentPage,
     this.color,
+    this.backgroundColor,
     this.labels,
     this.icons,
     this.withAppBar = true,
@@ -240,6 +258,7 @@ class _FloatingBottomNavigationBarState
               padding: 8,
               margin: 16,
               height: widget.height,
+              color: widget.backgroundColor,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: List.generate(
@@ -291,7 +310,10 @@ class _FloatingBottomNavigationBarState
                                 )
                               : widget.style == NavigationBarStyle.icons
                                   ? Icon(
-                                      widget.icons![index],
+                                      widget.selectedIcons != null &&
+                                              widget.currentPage.value == index
+                                          ? widget.selectedIcons![index]
+                                          : widget.icons![index],
                                       color: widget.currentPage.value == index
                                           ? widget.color != null
                                               ? widget.color![index]
