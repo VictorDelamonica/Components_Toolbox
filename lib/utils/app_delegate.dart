@@ -113,9 +113,6 @@ class AppDelegate {
     appearanceNotifier.value = Appearance.light;
   }
 
-  /// Checks if the current appearance is dark mode.
-  bool isDark() => appearanceNotifier.value == Appearance.dark;
-
   /// Sets the appearance based on the stored value in shared preferences.
   Future<void> setStoredAppearance() async {
     final prefs = await SharedPreferences.getInstance();
