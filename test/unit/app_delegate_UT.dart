@@ -17,7 +17,7 @@ void main() {
   test(
     'Get the appearance',
     () => {
-      expect(AppDelegate.getInstance().appearanceNotifier.value, isNotNull),
+      expect(AppDelegate.getInstance().getAppearance(), Appearance.light),
     },
   );
 
@@ -25,7 +25,7 @@ void main() {
 
   test('Set an appearance', () {
     const appearance = Appearance.dark;
-    AppDelegate.getInstance().appearanceNotifier.value = appearance;
+    AppDelegate.getInstance().setAppearance(appearance);
     expect(AppDelegate.getInstance().appearanceNotifier.value, appearance);
   });
 
@@ -36,11 +36,8 @@ void main() {
   });
 
   test("Switch appearance", () {
-    final newAppearance = AppDelegate.getInstance().isLight()
-        ? Appearance.dark
-        : Appearance.light;
-    AppDelegate.getInstance().appearanceNotifier.value = newAppearance;
-    expect(AppDelegate.getInstance().appearanceNotifier.value, newAppearance);
+    AppDelegate.getInstance().switchAppearance();
+    expect(AppDelegate.getInstance().appearanceNotifier.value, Appearance.dark);
   });
 
   test("Get color", () {
