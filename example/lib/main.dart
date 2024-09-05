@@ -56,6 +56,9 @@ class _HomeExampleState extends State<HomeExample>
     CustomColors.colorNotifier.addListener(() {
       setState(() {});
     });
+    _appDelegate.appearanceNotifier.addListener(() {
+      setState(() {});
+    });
     updateValue();
   }
 
@@ -67,8 +70,9 @@ class _HomeExampleState extends State<HomeExample>
 
   @override
   Widget build(BuildContext context) {
+    AppDelegate.getInstance().getAppearance();
     return Scaffold(
-      backgroundColor: _appDelegate.getColor("Background"),
+      backgroundColor: AppDelegate.getInstance().getColor("Background"),
       appBar: AppBar(
         title: const AutoText('Toolbox Example App', fontSize: 24),
         backgroundColor: _appDelegate.getColor("AppBar"),
@@ -84,6 +88,8 @@ class _HomeExampleState extends State<HomeExample>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 const SizedBox(height: 16),
+
+                ///region Appearance
                 const AutoText(
                   'Select appearance:',
                   fontSize: 24,
@@ -143,6 +149,9 @@ class _HomeExampleState extends State<HomeExample>
                   ],
                 ),
                 const SizedBox(height: 32),
+
+                ///endregion
+                ///region RoundedContainer
                 const AutoText(
                   'Rounded Container:',
                   fontSize: 24,
@@ -276,6 +285,9 @@ class _HomeExampleState extends State<HomeExample>
                   ),
                 ),
                 const SizedBox(height: 24),
+
+                ///endregion
+                ///region CustomTextField
                 const AutoText(
                   'TextField:',
                   fontSize: 24,
@@ -287,6 +299,9 @@ class _HomeExampleState extends State<HomeExample>
                   obscureText: true,
                 ),
                 const SizedBox(height: 32),
+
+                ///endregion
+                ///region RoundedButton
                 const AutoText(
                   'Rounded Button:',
                   fontSize: 24,
@@ -337,6 +352,9 @@ class _HomeExampleState extends State<HomeExample>
                   ],
                 ),
                 const SizedBox(height: 24),
+
+                ///endregion
+                ///region MarkdownText
                 const AutoText(
                   "Markdown Text:",
                   fontSize: 24,
@@ -347,6 +365,9 @@ class _HomeExampleState extends State<HomeExample>
                   ],
                 ),
                 const SizedBox(height: 24),
+
+                ///endregion
+                ///region Carousel
                 const AutoText(
                   'Carousel:',
                   fontSize: 24,
@@ -363,6 +384,9 @@ class _HomeExampleState extends State<HomeExample>
                   ],
                 ),
                 const SizedBox(height: 16),
+
+                ///endregion
+                ///region NavigationBar
                 const AutoText(
                   'Navigation Bar:',
                   fontSize: 24,
@@ -403,9 +427,39 @@ class _HomeExampleState extends State<HomeExample>
                     ),
                   );
                 }),
-                const SizedBox(height: 24),
+                const SizedBox(height: 16),
+
+                ///endregion
+                //region ThemeSwitcher
+                const AutoText("Theme Switcher", fontSize: 24),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ThemeSwitcher(),
+                    ThemeSwitcher(
+                      darkColor: Colors.red,
+                      lightColor: Colors.green,
+                    ),
+                    ThemeSwitcher(
+                      darkIconColor: Colors.yellow,
+                      lightIconColor: Colors.blue,
+                    ),
+                  ],
+                ),
+                const ThemeSwitcher(
+                  style: ThemeSwitcherStyle.switched,
+                ),
+                const ThemeSwitcher(
+                  style: ThemeSwitcherStyle.switched,
+                  darkColor: Colors.red,
+                ),
+                const SizedBox(height: 16),
+
+                ///endregion
+                /// region Loader
+                ///
                 const AutoText(
-                  'Loading:',
+                  'Loaders:',
                   fontSize: 24,
                 ),
                 const SizedBox(height: 16),
@@ -430,7 +484,6 @@ class _HomeExampleState extends State<HomeExample>
                         })
                   ],
                 ),
-                const SizedBox(height: 16),
                 Loader(
                   page: const Center(
                       child: RoundedContainer(child: AutoText("Loaded !!"))),
@@ -453,6 +506,8 @@ class _HomeExampleState extends State<HomeExample>
                   value: _value,
                 ),
                 const SizedBox(height: 16),
+
+                /// endregion
               ],
             ),
           ),

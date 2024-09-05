@@ -1,5 +1,5 @@
 // All rights reserved
-// Monikode Mobile Solutions and Draw Your Fight
+// Monikode Mobile Solutions
 // Created by MoniK on 2024.
 import 'package:components_toolbox/utils/app_delegate.dart';
 import 'package:components_toolbox/utils/colors.dart';

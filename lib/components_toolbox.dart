@@ -26,5 +26,6 @@ export './components/text_field.dart' show CustomTextField;
 export './utils/app_delegate.dart' show AppDelegate, Appearance;
 export './utils/colors.dart' show CustomColors, CustomColor;
 export './utils/shadows.dart' show CustomShadows;
+export 'components/theme_switcher.dart' show ThemeSwitcher, ThemeSwitcherStyle;
 
 /// endregion

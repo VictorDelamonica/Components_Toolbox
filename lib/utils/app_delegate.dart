@@ -86,10 +86,9 @@ class AppDelegate {
 
   /// Toggles the appearance between light and dark modes and stores it.
   void switchAppearance() {
-    appearanceNotifier.value = appearanceNotifier.value == Appearance.light
-        ? Appearance.dark
-        : Appearance.light;
+    appearanceNotifier.value = isLight() ? Appearance.dark : Appearance.light;
     storeAppearance();
+    _updateColors();
   }
 
   /// Stores the current appearance setting in shared preferences.

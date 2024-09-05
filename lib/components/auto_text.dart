@@ -25,7 +25,7 @@ class AutoText extends StatefulWidget {
   final TextOverflow overflow;
 
   /// The font size of the text.
-  final double fontSize;
+  final double? fontSize;
 
   /// The font family to use when painting the text.
   final String fontFamily;
