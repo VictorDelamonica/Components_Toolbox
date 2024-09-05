@@ -1,3 +1,10 @@
+## 4.0.0
+
+* Add `ThemeSwitcher` component
+* Minor fix on `Autotext` and `AppDelegate`
+
+* Fix UT
+
 ## 3.1.1
 
 * Fix selectedIcons not being displayed
