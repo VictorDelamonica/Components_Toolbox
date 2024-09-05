@@ -10,7 +10,7 @@ To use this class, you need to add the following dependency in your pubspec.yaml
 dependencies:
   flutter:
     sdk: flutter
-  components_toolbox: ^3.0.1
+  components_toolbox: ^4.0.0
 ```
 
 Then, you need to import the class in your file:

@@ -1,3 +1,7 @@
+## 4.0.0+1
+
+* Fix README.md
+
 ## 4.0.0
 
 * Add `ThemeSwitcher` component
