@@ -1,3 +1,8 @@
+## 4.1.0
+
+* Fix Color `Grey` in `CustomColors`
+* Add `fontFamily` to `AutoText`
+
 ## 4.0.0+1
 
 * Fix README.md
