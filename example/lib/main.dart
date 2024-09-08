@@ -408,7 +408,12 @@ class _HomeExampleState extends State<HomeExample>
                         pages: [
                           Container(color: Colors.red),
                           Container(color: Colors.green),
-                          Container(color: Colors.blue),
+                          Container(
+                            color: Colors.blue,
+                            child: ThemeSwitcher(
+                              style: ThemeSwitcherStyle.switched,
+                            ),
+                          ),
                         ],
                         currentPage: _currentPage,
                         style: NavigationBarStyle.classic,

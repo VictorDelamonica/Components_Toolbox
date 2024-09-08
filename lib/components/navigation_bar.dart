@@ -230,6 +230,14 @@ class _FloatingBottomNavigationBarState
   final Color _containerColor = Colors.transparent;
 
   @override
+  void initState() {
+    super.initState();
+    _appDelegate.appearanceNotifier.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: widget.withAppBar

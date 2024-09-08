@@ -103,6 +103,10 @@ class AppDelegate {
 
   /// Gets the color for a given color name based on the current appearance.
   Color getColor(String colorName) {
+    if (colors[colorName] == null) {
+      throw ArgumentError(
+          "Color name '${colorName}' not found in colors map $colors");
+    }
     return colors[colorName]![
         appearanceNotifier.value.toString().split('.').last];
   }
@@ -154,6 +158,10 @@ class AppDelegate {
       "InvertedText": {
         "light": Colors.white,
         "dark": Colors.black,
+      },
+      "Grey": {
+        "light": CustomColors.grey,
+        "dark": CustomColors.greyDark,
       },
     };
     appearanceNotifier.value = appearanceNotifier.value;
