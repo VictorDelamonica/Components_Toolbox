@@ -1,7 +1,12 @@
+## 4.1.0+1
+
+* Fix `textColor` in `RoundedButton
+* Fix color in `CustomTextField`
+
 ## 4.1.0
 
 * Fix Color `Grey` in `CustomColors`
-* Add `fontFamily` to `AutoText`
+* Add `fontWeights` in `Autotext`
 
 ## 4.0.0+1
 

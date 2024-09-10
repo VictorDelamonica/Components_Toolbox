@@ -111,6 +111,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 borderRadius:
                     BorderRadius.all(Radius.circular(widget.borderRadius)),
               ),
+              focusColor: _appDelegate.getColor("Dark"),
+              focusedBorder: OutlineInputBorder(
+                borderRadius:
+                    BorderRadius.all(Radius.circular(widget.borderRadius)),
+                borderSide: BorderSide(
+                  color: _appDelegate.getColor("Dark"),
+                ),
+              ),
               labelText: widget.label,
               labelStyle: TextStyle(
                 color: _appDelegate.getColor("InvertedDark"),
