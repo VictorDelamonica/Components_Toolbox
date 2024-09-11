@@ -1,3 +1,7 @@
+## 4.1.0+2
+
+* Add `fontFamily` in `MarkdownText`
+
 ## 4.1.0+1
 
 * Fix `textColor` in `RoundedButton
