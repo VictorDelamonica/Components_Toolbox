@@ -15,6 +15,9 @@ class MarkdownText extends StatefulWidget {
   /// The font size of the text.
   final double fontSize;
 
+  /// The font family to use when painting the text.
+  final String fontFamily;
+
   /// Creates a [MarkdownText] widget.
   ///
   /// The [paragraphs] parameter must not be null.
@@ -23,6 +26,7 @@ class MarkdownText extends StatefulWidget {
     super.key,
     required this.paragraphs,
     this.fontSize = 16.0,
+    this.fontFamily = "Roboto",
   });
 
   @override
