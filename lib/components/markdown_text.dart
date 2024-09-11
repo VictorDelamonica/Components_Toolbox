@@ -54,6 +54,7 @@ class _MarkdownTextState extends State<MarkdownText> {
           text: parts[i],
           style: TextStyle(
             color: _appDelegate.getColor("Text"),
+            fontFamily: widget.fontFamily,
             fontSize: widget.fontSize,
             fontWeight: i % 2 == 0 ? FontWeight.normal : FontWeight.bold,
           ),
@@ -80,6 +81,7 @@ class _MarkdownTextState extends State<MarkdownText> {
             children: spans,
             style: TextStyle(
               fontSize: widget.fontSize,
+              fontFamily: widget.fontFamily,
               color: _appDelegate.getColor("Text"),
               textBaseline: TextBaseline.alphabetic,
             ),
