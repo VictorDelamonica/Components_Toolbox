@@ -348,7 +348,10 @@ class _HomeExampleState extends State<HomeExample>
                       icon: Icons.add,
                       onPressed: () {},
                     ),
-                    AutoTextButton("TextButton", onPressed: () {}),
+                    AutoTextButton(
+                      "TextButton",
+                      onPressed: () {},
+                    ),
                   ],
                 ),
                 const SizedBox(height: 24),

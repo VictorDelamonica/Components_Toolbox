@@ -34,6 +34,9 @@ class RoundedContainer extends StatefulWidget {
   /// The border to apply to the container.
   final Border? border;
 
+  /// The duration of the animation.
+  final Duration? duration;
+
   /// Creates a `RoundedContainer` widget.
   ///
   /// The [child] parameter must not be null.
@@ -48,6 +51,7 @@ class RoundedContainer extends StatefulWidget {
     this.color,
     this.shadow,
     this.border,
+    this.duration,
   });
 
   @override
@@ -80,7 +84,8 @@ class _RoundedContainerState extends State<RoundedContainer> {
     return ValueListenableBuilder<BoxShadow>(
       valueListenable: widget.shadow ?? CustomShadows.regular,
       builder: (context, shadow, child) {
-        return Container(
+        return AnimatedContainer(
+          duration: widget.duration ?? const Duration(milliseconds: 300),
           height: widget.height,
           width: widget.width,
           padding: EdgeInsets.all(widget.padding),

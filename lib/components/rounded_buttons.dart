@@ -39,24 +39,32 @@ class RoundedButton extends StatefulWidget {
   /// The shadow to apply to the button.
   final ValueNotifier<BoxShadow>? shadow;
 
+  /// The radius of the button.
+  final double radius;
+
+  /// The boolean value to check if the button is disabled.
+  final bool isDisabled;
+
   /// Creates a `RoundedButton` widget.
   ///
   /// The [onPressed] parameter must not be null.
   /// The [text] parameter must not be empty if [icon] is null.
-  const RoundedButton(
-      {super.key,
-      this.text = "",
-      required this.onPressed,
-      this.width,
-      this.height,
-      this.color,
-      this.textColor,
-      this.icon,
-      this.iconSize,
-      this.iconColor,
-      this.shadow,
-      this.margin = 0.0})
-      : assert(text != "" || icon != null);
+  const RoundedButton({
+    super.key,
+    this.text = "",
+    required this.onPressed,
+    this.width,
+    this.height,
+    this.color,
+    this.textColor,
+    this.icon,
+    this.iconSize,
+    this.iconColor,
+    this.shadow,
+    this.margin = 0.0,
+    this.radius = 24,
+    this.isDisabled = false,
+  });
 
   @override
   State<RoundedButton> createState() => _RoundedButtonState();
@@ -73,29 +81,38 @@ class _RoundedButtonState extends State<RoundedButton>
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      Container(
+      RoundedContainer(
         width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
         height: widget.height ?? 48,
-        margin: EdgeInsets.all(widget.margin),
-        decoration: BoxDecoration(
-          color: widget.color ?? _appDelegate.getColor("AppBar"),
-          borderRadius: BorderRadius.circular(24),
-          boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
-        ),
+        margin: widget.margin,
+        color: widget.isDisabled
+            ? _appDelegate.getColor("Grey")
+            : widget.color ?? _appDelegate.getColor("AppBar"),
+        radius: widget.radius,
+        shadow: widget.shadow,
+        padding: 0.0,
         child: Material(
           color: Colors.transparent,
-          child: InkWell(
-            borderRadius: BorderRadius.circular(24),
-            onTap: () {
-              widget.onPressed();
-            },
-            child: Center(
-              child: AutoText(
-                widget.text,
-                textColor: widget.textColor,
-              ),
-            ),
-          ),
+          child: widget.isDisabled
+              ? Center(
+                  child: AutoText(
+                    widget.text,
+                    textColor: widget.textColor,
+                  ),
+                )
+              : InkWell(
+                  borderRadius: BorderRadius.circular(24),
+                  onTap: () {
+                    if (widget.isDisabled) return;
+                    widget.onPressed();
+                  },
+                  child: Center(
+                    child: AutoText(
+                      widget.text,
+                      textColor: widget.textColor,
+                    ),
+                  ),
+                ),
         ),
       )
     ]);
@@ -131,7 +148,10 @@ class RoundedButtonWithIcons extends RoundedButton {
     this.iconSize = 24,
     this.iconColor,
     super.shadow,
-  }) : super(icon: icon, iconSize: iconSize, iconColor: iconColor);
+    super.margin,
+    super.radius,
+    super.isDisabled = false,
+  }) : super(iconSize: iconSize, iconColor: iconColor);
 
   @override
   State<RoundedButton> createState() => _RoundedButtonWithIconsState();
@@ -140,38 +160,55 @@ class RoundedButtonWithIcons extends RoundedButton {
 class _RoundedButtonWithIconsState extends _RoundedButtonState {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return RoundedContainer(
       width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
       height: widget.height ?? 48,
-      margin: EdgeInsets.all(widget.margin),
-      decoration: BoxDecoration(
-        color: widget.color ?? _appDelegate.getColor("AppBar"),
-        borderRadius: BorderRadius.circular(24),
-        boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
-      ),
+      margin: widget.margin,
+      color: widget.isDisabled
+          ? _appDelegate.getColor("Grey")
+          : widget.color ?? _appDelegate.getColor("AppBar"),
+      radius: widget.radius,
+      shadow: widget.shadow,
+      padding: 0.0,
       child: Material(
         color: Colors.transparent,
-        child: InkWell(
-          onTap: () {
-            widget.onPressed();
-          },
-          borderRadius: BorderRadius.circular(24),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              const SizedBox(width: 8),
-              AutoText(
-                widget.text,
-                textColor: widget.textColor,
+        child: widget.isDisabled
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const SizedBox(width: 8),
+                  AutoText(
+                    widget.text,
+                    textColor: widget.textColor,
+                  ),
+                  Icon(
+                    widget.icon,
+                    size: widget.iconSize,
+                    color: widget.iconColor ?? _appDelegate.getColor("Text"),
+                  ),
+                ],
+              )
+            : InkWell(
+                onTap: () {
+                  widget.onPressed();
+                },
+                borderRadius: BorderRadius.circular(24),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    const SizedBox(width: 8),
+                    AutoText(
+                      widget.text,
+                      textColor: widget.textColor,
+                    ),
+                    Icon(
+                      widget.icon,
+                      size: widget.iconSize,
+                      color: widget.iconColor ?? _appDelegate.getColor("Text"),
+                    ),
+                  ],
+                ),
               ),
-              Icon(
-                widget.icon,
-                size: widget.iconSize,
-                color: widget.iconColor ?? _appDelegate.getColor("Text"),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
@@ -194,6 +231,9 @@ class OutlinedRoundedButton extends RoundedButton {
     super.iconSize,
     super.iconColor,
     super.shadow,
+    super.margin,
+    super.radius,
+    super.isDisabled = false,
   }) : super(text: text);
 
   @override
@@ -203,42 +243,60 @@ class OutlinedRoundedButton extends RoundedButton {
 class _OutlinedRoundedButtonState extends _RoundedButtonState {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return RoundedContainer(
       width: widget.width ?? MediaQuery.of(context).size.width - 16 * 2,
       height: widget.height ?? 48,
-      margin: EdgeInsets.all(widget.margin),
-      decoration: BoxDecoration(
-        color: _appDelegate.getColor("Background"),
-        borderRadius: BorderRadius.circular(24),
-        boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
-        border: Border.all(
-          color: widget.color ?? _appDelegate.getColor("Text"),
-        ),
+      margin: widget.margin,
+      border: Border.all(
+        color: widget.isDisabled
+            ? _appDelegate.getColor("Grey")
+            : widget.color ?? _appDelegate.getColor("Text"),
       ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: () {
-            widget.onPressed();
-          },
-          borderRadius: BorderRadius.circular(24),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              const SizedBox(width: 8),
-              AutoText(
-                widget.text,
-                textColor: widget.textColor,
+      radius: widget.radius,
+      shadow: widget.shadow,
+      padding: 0.0,
+      child: widget.isDisabled
+          ? Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                const SizedBox(width: 8),
+                AutoText(
+                  widget.text,
+                  textColor: widget.isDisabled
+                      ? _appDelegate.getColor("Grey")
+                      : widget.textColor,
+                ),
+                Icon(
+                  widget.icon,
+                  size: widget.iconSize,
+                  color: widget.iconColor ?? _appDelegate.getColor("Text"),
+                ),
+              ],
+            )
+          : Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: () {
+                  widget.onPressed();
+                },
+                borderRadius: BorderRadius.circular(widget.radius),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    const SizedBox(width: 8),
+                    AutoText(
+                      widget.text,
+                      textColor: widget.textColor,
+                    ),
+                    Icon(
+                      widget.icon,
+                      size: widget.iconSize,
+                      color: widget.iconColor ?? _appDelegate.getColor("Text"),
+                    ),
+                  ],
+                ),
               ),
-              Icon(
-                widget.icon,
-                size: widget.iconSize,
-                color: widget.iconColor ?? _appDelegate.getColor("Text"),
-              ),
-            ],
-          ),
-        ),
-      ),
+            ),
     );
   }
 }
@@ -260,6 +318,9 @@ class CircleButton extends RoundedButton {
     super.iconSize,
     super.iconColor,
     super.shadow,
+    super.margin,
+    super.radius,
+    super.isDisabled = false,
   });
 
   @override
@@ -269,31 +330,40 @@ class CircleButton extends RoundedButton {
 class _CircleButtonState extends _RoundedButtonState {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return RoundedContainer(
       width: widget.width ?? 48,
       height: widget.height ?? 48,
-      margin: EdgeInsets.all(widget.margin),
-      decoration: BoxDecoration(
-        color: widget.color ?? _appDelegate.getColor("AppBar"),
-        borderRadius: BorderRadius.circular(24),
-        boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: () {
-            widget.onPressed();
-          },
-          borderRadius: BorderRadius.circular(24),
-          child: Center(
-            child: Icon(
-              widget.icon,
-              size: widget.iconSize,
-              color: widget.iconColor ?? _appDelegate.getColor("Text"),
+      margin: widget.margin,
+      color: widget.isDisabled
+          ? _appDelegate.getColor("Grey")
+          : widget.color ?? _appDelegate.getColor("AppBar"),
+      radius: widget.radius,
+      shadow: widget.shadow,
+      padding: 0.0,
+      child: widget.isDisabled
+          ? Center(
+              child: Icon(
+                widget.icon,
+                size: widget.iconSize,
+                color: widget.iconColor ?? _appDelegate.getColor("Text"),
+              ),
+            )
+          : Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: () {
+                  widget.onPressed();
+                },
+                borderRadius: BorderRadius.circular(widget.radius),
+                child: Center(
+                  child: Icon(
+                    widget.icon,
+                    size: widget.iconSize,
+                    color: widget.iconColor ?? _appDelegate.getColor("Text"),
+                  ),
+                ),
+              ),
             ),
-          ),
-        ),
-      ),
     );
   }
 }
@@ -315,6 +385,9 @@ class AutoTextButton extends RoundedButton {
     super.iconSize,
     super.iconColor,
     super.shadow,
+    super.margin,
+    super.radius,
+    super.isDisabled = false,
   }) : super(text: text);
 
   @override
@@ -324,28 +397,31 @@ class AutoTextButton extends RoundedButton {
 class _AutoTextButtonState extends _RoundedButtonState {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return RoundedContainer(
       height: widget.height ?? 24,
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      margin: EdgeInsets.all(widget.margin),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24),
-        boxShadow: widget.shadow != null ? [widget.shadow!.value] : [],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: () {
-            widget.onPressed();
-          },
-          borderRadius: BorderRadius.circular(24),
-          child: AutoText(
-            widget.text,
-            textColor:
-                widget.textColor ?? _appDelegate.getColor("InvertedDark"),
-          ),
-        ),
-      ),
+      margin: widget.margin,
+      radius: widget.radius,
+      shadow: widget.shadow,
+      padding: 0.0,
+      child: widget.isDisabled
+          ? AutoText(
+              widget.text,
+              textColor: _appDelegate.getColor("Grey"),
+            )
+          : Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: () {
+                  widget.onPressed();
+                },
+                borderRadius: BorderRadius.circular(widget.radius),
+                child: AutoText(
+                  widget.text,
+                  textColor:
+                      widget.textColor ?? _appDelegate.getColor("InvertedDark"),
+                ),
+              ),
+            ),
     );
   }
 }
