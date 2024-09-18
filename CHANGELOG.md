@@ -1,3 +1,8 @@
+## 4.2.0
+
+* Change `RoundedContainer`'s container fo a `AnimatedContainer`
+* Add a boolean value for the enable/disable of the `RoundedButon`'s
+
 ## 4.1.0+3
 
 * Fix `fontFamily` in `MarkdownText`
