@@ -1,3 +1,8 @@
+## 4.2.0+2
+
+* Add `fontWheights` in `ThemeSwitcher`
+* Minor fix
+
 ## 4.2.0+1
 
 * Minor fix on `Loader`
