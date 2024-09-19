@@ -1,3 +1,7 @@
+## 4.2.0+1
+
+* Minor fix on `Loader`
+
 ## 4.2.0
 
 * Change `RoundedContainer`'s container fo a `AnimatedContainer`
