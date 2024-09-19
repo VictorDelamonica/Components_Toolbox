@@ -53,7 +53,7 @@ class Loader extends StatefulWidget {
     this.icon,
     this.iconSize,
     this.imagePath,
-    this.imageSize,
+    this.imageSize = 60,
   });
 
   @override
@@ -101,7 +101,7 @@ class _LoaderState extends State<Loader> with TickerProviderStateMixin {
     if (widget.imagePath != null) {
       _height = widget.imageSize!;
       _width = widget.imageSize!;
-      Timer.periodic(const Duration(seconds: 1), (timer) {
+      Timer.periodic(const Duration(milliseconds: 500), (timer) {
         if (mounted) {
           setState(() {
             _height = _height == widget.imageSize
