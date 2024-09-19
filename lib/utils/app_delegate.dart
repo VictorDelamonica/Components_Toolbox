@@ -105,7 +105,7 @@ class AppDelegate {
   Color getColor(String colorName) {
     if (colors[colorName] == null) {
       throw ArgumentError(
-          "Color name '${colorName}' not found in colors map $colors");
+          "Color name '$colorName' not found in colors map $colors");
     }
     return colors[colorName]![
         appearanceNotifier.value.toString().split('.').last];

@@ -59,6 +59,14 @@ class _AutoTextState extends State<AutoText> {
   final AppDelegate _appDelegate = AppDelegate.getInstance();
 
   @override
+  void initState() {
+    _appDelegate.appearanceNotifier.addListener(() {
+      setState(() {});
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Appearance>(
       valueListenable: _appDelegate.appearanceNotifier,

@@ -413,7 +413,7 @@ class _HomeExampleState extends State<HomeExample>
                           Container(color: Colors.green),
                           Container(
                             color: Colors.blue,
-                            child: ThemeSwitcher(
+                            child: const ThemeSwitcher(
                               style: ThemeSwitcherStyle.switched,
                             ),
                           ),

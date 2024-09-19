@@ -36,6 +36,9 @@ class ThemeSwitcher extends StatefulWidget {
   /// The font size for the text in the switcher.
   final double? fontSize;
 
+  /// The font weight for the text in the switcher.
+  final FontWeight? fontWeight;
+
   /// Creates a [ThemeSwitcher] widget.
   ///
   /// The [style] parameter is required.
@@ -49,6 +52,7 @@ class ThemeSwitcher extends StatefulWidget {
     this.darkIconColor,
     this.lightIconColor,
     this.fontSize,
+    this.fontWeight,
   });
 
   @override
@@ -90,6 +94,7 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
             AutoText(
               "Dark Mode",
               fontSize: widget.fontSize,
+              fontWeight: widget.fontWeight,
             ),
             Switch(
               value: !_appDelegate.isLight(),
