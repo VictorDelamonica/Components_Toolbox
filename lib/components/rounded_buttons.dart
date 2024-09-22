@@ -403,6 +403,9 @@ class _AutoTextButtonState extends _RoundedButtonState {
       radius: widget.radius,
       shadow: widget.shadow,
       padding: 0.0,
+      color: widget.isDisabled
+          ? Colors.transparent
+          : widget.color ?? _appDelegate.getColor("AppBar"),
       child: widget.isDisabled
           ? AutoText(
               widget.text,
