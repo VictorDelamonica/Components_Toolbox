@@ -381,14 +381,11 @@ class AutoTextButton extends RoundedButton {
     super.height,
     super.color,
     super.textColor,
-    super.icon,
-    super.iconSize,
-    super.iconColor,
     super.shadow,
     super.margin,
     super.radius,
     super.isDisabled = false,
-  }) : super(text: text);
+  }) : assert(text != "");
 
   @override
   State<RoundedButton> createState() => _AutoTextButtonState();
@@ -399,6 +396,7 @@ class _AutoTextButtonState extends _RoundedButtonState {
   Widget build(BuildContext context) {
     return RoundedContainer(
       height: widget.height ?? 24,
+      width: widget.width,
       margin: widget.margin,
       radius: widget.radius,
       shadow: widget.shadow,

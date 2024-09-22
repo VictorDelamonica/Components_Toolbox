@@ -1,3 +1,7 @@
+## 4.2.0+4
+
+* Fix `width` in `AutoTextButton`
+
 ## 4.2.0+3
 
 * Fix `color` in `AutoTextButton`
