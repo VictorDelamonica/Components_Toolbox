@@ -1,3 +1,7 @@
+## 4.2.0+5
+
+* Fix `AutoTextButton`
+
 ## 4.2.0+4
 
 * Fix `width` in `AutoTextButton`

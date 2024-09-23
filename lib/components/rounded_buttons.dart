@@ -385,7 +385,8 @@ class AutoTextButton extends RoundedButton {
     super.margin,
     super.radius,
     super.isDisabled = false,
-  }) : assert(text != "");
+  })  : assert(text != ""),
+        super(text: text);
 
   @override
   State<RoundedButton> createState() => _AutoTextButtonState();
