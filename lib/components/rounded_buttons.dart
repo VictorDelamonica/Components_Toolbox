@@ -417,10 +417,12 @@ class _AutoTextButtonState extends _RoundedButtonState {
                   widget.onPressed();
                 },
                 borderRadius: BorderRadius.circular(widget.radius),
-                child: AutoText(
-                  widget.text,
-                  textColor:
-                      widget.textColor ?? _appDelegate.getColor("InvertedDark"),
+                child: Center(
+                  child: AutoText(
+                    widget.text,
+                    textColor: widget.textColor ??
+                        _appDelegate.getColor("InvertedDark"),
+                  ),
                 ),
               ),
             ),
