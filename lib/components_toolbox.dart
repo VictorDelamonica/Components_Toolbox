@@ -4,7 +4,8 @@
 library components_toolbox;
 
 /// region Components
-export './components/animated_list.dart' show AutoScaleAnimatedColumn;
+export './components/auto_scale_animated_column.dart'
+    show AutoScaleAnimatedColumn;
 export './components/auto_text.dart' show AutoText;
 export './components/carousel.dart' show Carousel;
 export './components/loader.dart' show Loader;
