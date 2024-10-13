@@ -10,7 +10,7 @@ To use this class, you need to add the following dependency in your pubspec.yaml
 dependencies:
   flutter:
     sdk: flutter
-  components_toolbox: ^4.0.0
+  components_toolbox: ^5.0.0
 ```
 
 Then, you need to import the class in your file:
@@ -33,4 +33,9 @@ The toolbox class has the following components:
 - **Carousel**: A carousel that can be embedded on any component.
 - **Custom Navigation Bar**: A custom navigation bar with a title and a back button.
 - **Loader**: A loader that can be embedded on any component.
+- **Theme Switcher**: A switcher that can change the theme of the app.
+- **Floating Navigation Bar**: A navigation bar that can float on the screen.
+- **AutoText**: A text that can be resized automatically.
+- **Custom Colors**: A class that can be used to set custom colors for the app.
+- **AutoScaleAnimatedColumn**: A column that can be animated and resized automatically.
 

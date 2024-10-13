@@ -1,3 +1,7 @@
+## 5.0.0+1
+
+* Fix README.md
+
 ## 5.0.0
 
 * Add `AutoScaleAnimatedColumn` component
