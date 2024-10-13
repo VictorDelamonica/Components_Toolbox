@@ -1,3 +1,8 @@
+## 5.0.0
+
+* Add `AutoScaleAnimatedColumn` component
+* Minor fix
+
 ## 4.2.0(+3..+6)
 
 * Fix`AutoTextButton`
