@@ -151,6 +151,77 @@ class _HomeExampleState extends State<HomeExample>
                 const SizedBox(height: 32),
 
                 ///endregion
+                ///region AutoScaleAnimatedColumn
+                const AutoText(
+                  'Auto Scale Animated Column:',
+                  fontSize: 24,
+                ),
+                const AutoScaleAnimatedColumn(
+                  items: [
+                    RoundedContainer(
+                      color: Colors.blue,
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.red,
+                            radius: 24,
+                          ),
+                          const AutoText("Item 1"),
+                        ],
+                      ),
+                    ),
+                    RoundedContainer(
+                      color: Colors.blue,
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.red,
+                            radius: 24,
+                          ),
+                          const AutoText("Item 1"),
+                        ],
+                      ),
+                    ),
+                    RoundedContainer(
+                      color: Colors.blue,
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.red,
+                            radius: 24,
+                          ),
+                          const AutoText("Item 1"),
+                        ],
+                      ),
+                    ),
+                    RoundedContainer(
+                      color: Colors.blue,
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.red,
+                            radius: 24,
+                          ),
+                          const AutoText("Item 1"),
+                        ],
+                      ),
+                    ),
+                    RoundedContainer(
+                      color: Colors.blue,
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.red,
+                            radius: 24,
+                          ),
+                          const AutoText("Item 1"),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+
+                /// endregion
                 ///region RoundedContainer
                 const AutoText(
                   'Rounded Container:',
@@ -462,6 +533,9 @@ class _HomeExampleState extends State<HomeExample>
                   darkColor: Colors.red,
                 ),
                 const SizedBox(height: 16),
+
+                ///endregion
+                ///region AnimatedListTile
 
                 ///endregion
                 /// region Loader

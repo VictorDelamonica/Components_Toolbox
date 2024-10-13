@@ -15,6 +15,8 @@ enum CustomColor {
   lightDark,
   grey,
   greyDark,
+  text,
+  invertedText,
 }
 
 /// A class that defines custom colors used in the application.
@@ -48,6 +50,10 @@ class CustomColors {
   static Color grey = const Color.fromRGBO(200, 200, 200, 1);
 
   static Color greyDark = const Color.fromRGBO(100, 100, 100, 1);
+
+  static Color text = Colors.black;
+
+  static Color invertedText = Colors.white;
 
   /// Sets the color for a given custom color type.
   ///
@@ -85,6 +91,12 @@ class CustomColors {
       case CustomColor.greyDark:
         greyDark = color;
         break;
+      case CustomColor.text:
+        text = color;
+        break;
+      case CustomColor.invertedText:
+        invertedText = color;
+        break;
       default:
         break;
     }
@@ -100,6 +112,8 @@ class CustomColors {
     backgroundDark = const Color.fromRGBO(51, 51, 51, 1);
     darkDark = const Color.fromRGBO(33, 90, 95, 1);
     lightDark = const Color.fromRGBO(61, 61, 61, 1.0);
+    text = Colors.black;
+    invertedText = Colors.white;
     colorNotifier.value = null;
   }
 }
