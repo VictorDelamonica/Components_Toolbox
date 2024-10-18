@@ -5,15 +5,19 @@ import 'package:components_toolbox/components_toolbox.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// Manages the application's appearance settings and color schemes.
+/// Manages the application's appearance settings and color schemes and popUp.
 class AppDelegate {
   /// Notifies listeners of changes in the app's appearance.
   ValueNotifier<Appearance> appearanceNotifier =
       ValueNotifier<Appearance>(Appearance.light);
 
+  /// Notifies listeners of changes in the app's of `CustomColors`.
   ValueNotifier<CustomColors> colorNotifier = ValueNotifier<CustomColors>(
     CustomColors(),
   );
+
+  /// Notifies listeners of changes in the app's for the popUp
+  ValueNotifier<List<Widget>> defaultPopUp = ValueNotifier([const SizedBox()]);
 
   /// A map of color schemes for different UI elements in light and dark modes.
   Map<String, dynamic> colors = {
@@ -168,8 +172,7 @@ class AppDelegate {
     debugPrint("Colors updated");
   }
 
-  ValueNotifier<List<Widget>> defaultPopUp = ValueNotifier([const SizedBox()]);
-
+  /// Show a popUp from anywhere (with context) with the `defaultPopUp` (from the AppDelegate) or a custom (`child`)
   void showPopUp({
     required BuildContext context,
     EdgeInsetsGeometry? padding,
