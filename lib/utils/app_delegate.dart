@@ -1,7 +1,7 @@
 // All rights reserved
 // Monikode Mobile Solutions
 // Created by MoniK on 2024.
-import 'package:components_toolbox/utils/colors.dart';
+import 'package:components_toolbox/components_toolbox.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -166,6 +166,88 @@ class AppDelegate {
     };
     appearanceNotifier.value = appearanceNotifier.value;
     debugPrint("Colors updated");
+  }
+
+  ValueNotifier<List<Widget>> defaultPopUp = ValueNotifier([const SizedBox()]);
+
+  void showPopUp({
+    required BuildContext context,
+    EdgeInsetsGeometry? padding,
+    Color? background,
+    Widget? child,
+    bool withActions = false,
+    bool roundedButtons = false,
+    Function? action1,
+    Function? action2,
+    String? text1,
+    String? text2,
+  }) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            backgroundColor: background ?? getColor("Dark"),
+            child: Padding(
+                padding: padding ?? const EdgeInsets.all(16.0),
+                child: withActions
+                    ? Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: defaultPopUp.value +
+                            [
+                              const SizedBox(
+                                height: 16,
+                              )
+                            ] +
+                            [
+                              roundedButtons
+                                  ? Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        RoundedButton(
+                                            text: text1 ?? "Cancel",
+                                            onPressed: () {
+                                              action1 ?? Navigator.pop(context);
+                                            },
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width /
+                                                3),
+                                        RoundedButton(
+                                            text: text2 ?? "Okay",
+                                            onPressed: () {
+                                              action1 ?? Navigator.pop(context);
+                                            },
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width /
+                                                3),
+                                      ],
+                                    )
+                                  : Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        AutoTextButton(text1 ?? "Cancel",
+                                            onPressed: () {
+                                          action1 ?? Navigator.pop(context);
+                                        }),
+                                        const SizedBox(
+                                          width: 8.0,
+                                        ),
+                                        AutoTextButton(text2 ?? "Okay",
+                                            onPressed: () {
+                                          action1 ?? Navigator.pop(context);
+                                        }),
+                                      ],
+                                    )
+                            ],
+                      )
+                    : child ??
+                        Column(
+                          children: defaultPopUp.value,
+                        )),
+          );
+        });
   }
 }
 

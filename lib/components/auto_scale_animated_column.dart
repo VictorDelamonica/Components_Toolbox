@@ -38,8 +38,7 @@ class _AutoScaleAnimatedColumnState extends State<AutoScaleAnimatedColumn>
     _controllers = List.generate(widget.items.length, (index) {
       return AnimationController(
         vsync: this,
-        duration:
-            Duration(milliseconds: widget.duration?.inMilliseconds ?? 500),
+        duration: widget.duration ?? const Duration(milliseconds: 500),
       );
     });
     _slideAnimation = List.generate(widget.items.length, (index) {
@@ -65,7 +64,7 @@ class _AutoScaleAnimatedColumnState extends State<AutoScaleAnimatedColumn>
   _startAnimations() async {
     for (var i = 0; i < widget.items.length; i++) {
       await Future.delayed(
-          Duration(milliseconds: widget.duration?.inMilliseconds ?? 300));
+          widget.duration ?? const Duration(milliseconds: 500));
       _controllers[i].forward();
     }
   }

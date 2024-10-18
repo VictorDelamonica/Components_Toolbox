@@ -9,6 +9,15 @@ import 'package:flutter/material.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await AppDelegate.getInstance().setStoredAppearance();
+  AppDelegate.getInstance().defaultPopUp.value = [
+    const AutoText(
+      "This is the PopUp",
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+    ),
+    const Spacer(),
+    const AutoText("this is the end")
+  ];
 
   runApp(const ExampleApp());
 }
@@ -44,6 +53,7 @@ class _HomeExampleState extends State<HomeExample>
   final ValueNotifier<int> _currentPage = ValueNotifier<int>(0);
   final ValueNotifier<bool> _value = ValueNotifier<bool>(false);
   final ValueNotifier<bool> _testValue = ValueNotifier<bool>(false);
+  bool _checkBoxValue = false;
 
   Future<void> updateValue() async {
     await Future.delayed(const Duration(seconds: 1));
@@ -166,7 +176,7 @@ class _HomeExampleState extends State<HomeExample>
                             backgroundColor: Colors.red,
                             radius: 24,
                           ),
-                          const AutoText("Item 1"),
+                          AutoText("Item 1"),
                         ],
                       ),
                     ),
@@ -178,7 +188,7 @@ class _HomeExampleState extends State<HomeExample>
                             backgroundColor: Colors.red,
                             radius: 24,
                           ),
-                          const AutoText("Item 1"),
+                          AutoText("Item 1"),
                         ],
                       ),
                     ),
@@ -190,7 +200,7 @@ class _HomeExampleState extends State<HomeExample>
                             backgroundColor: Colors.red,
                             radius: 24,
                           ),
-                          const AutoText("Item 1"),
+                          AutoText("Item 1"),
                         ],
                       ),
                     ),
@@ -202,7 +212,7 @@ class _HomeExampleState extends State<HomeExample>
                             backgroundColor: Colors.red,
                             radius: 24,
                           ),
-                          const AutoText("Item 1"),
+                          AutoText("Item 1"),
                         ],
                       ),
                     ),
@@ -214,7 +224,7 @@ class _HomeExampleState extends State<HomeExample>
                             backgroundColor: Colors.red,
                             radius: 24,
                           ),
-                          const AutoText("Item 1"),
+                          AutoText("Item 1"),
                         ],
                       ),
                     ),
@@ -535,9 +545,71 @@ class _HomeExampleState extends State<HomeExample>
                 const SizedBox(height: 16),
 
                 ///endregion
-                ///region AnimatedListTile
 
-                ///endregion
+                /// region ShowPopUp
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const AutoText("Basic one"),
+                    Checkbox(
+                        activeColor: _appDelegate.getColor("AppBar"),
+                        value: _checkBoxValue,
+                        onChanged: (value) {
+                          setState(() {
+                            _checkBoxValue = !_checkBoxValue;
+                          });
+                          if (value == true) {
+                            _appDelegate.showPopUp(
+                              context: context,
+                            );
+                          }
+                        }),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const AutoText("Action one"),
+                    Checkbox(
+                        activeColor: _appDelegate.getColor("AppBar"),
+                        value: _checkBoxValue,
+                        onChanged: (value) {
+                          setState(() {
+                            _checkBoxValue = !_checkBoxValue;
+                          });
+                          if (value == true) {
+                            _appDelegate.showPopUp(
+                              context: context,
+                              withActions: true,
+                            );
+                          }
+                        }),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const AutoText("Action rounded buttons"),
+                    Checkbox(
+                      activeColor: _appDelegate.getColor("AppBar"),
+                      value: _checkBoxValue,
+                      onChanged: (value) {
+                        setState(() {
+                          _checkBoxValue = !_checkBoxValue;
+                        });
+                        if (value == true) {
+                          _appDelegate.showPopUp(
+                            context: context,
+                            withActions: true,
+                            roundedButtons: true,
+                          );
+                        }
+                      },
+                    ),
+                  ],
+                ),
+
+                /// endregion
                 /// region Loader
                 ///
                 const AutoText(
