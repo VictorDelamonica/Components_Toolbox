@@ -68,6 +68,9 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
     _appDelegate.appearanceNotifier.addListener(() {
       setState(() {});
     });
+    _appDelegate.colorNotifier.addListener(() {
+      setState(() {});
+    });
   }
 
   @override

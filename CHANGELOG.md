@@ -1,3 +1,11 @@
+##  5.0.3
+
+* Fix `ThemeSwitcher` activeColor
+
+##  5.0.2
+
+* Fix `CustumColors` text color
+
 ##  5.0.1
 
 * Fix export

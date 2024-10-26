@@ -46,12 +46,12 @@ class AppDelegate {
       "dark": CustomColors.light,
     },
     "Text": {
-      "light": Colors.black,
-      "dark": Colors.white,
+      "light": CustomColors.text,
+      "dark": CustomColors.invertedText,
     },
     "InvertedText": {
-      "light": Colors.white,
-      "dark": Colors.black,
+      "light": CustomColors.invertedText,
+      "dark": CustomColors.text,
     },
     "Grey": {
       "light": CustomColors.grey,
