@@ -1,3 +1,7 @@
+##  5.1.0
+
+* Fix `actions` in `AppDelegate` popup
+
 ##  5.0.3
 
 * Fix `ThemeSwitcher` activeColor

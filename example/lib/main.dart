@@ -602,6 +602,10 @@ class _HomeExampleState extends State<HomeExample>
                             context: context,
                             withActions: true,
                             roundedButtons: true,
+                            text1: "No",
+                            action1: () {
+                              Navigator.pop(context);
+                            },
                           );
                         }
                       },
