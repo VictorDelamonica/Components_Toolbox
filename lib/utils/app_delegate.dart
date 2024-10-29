@@ -195,62 +195,68 @@ class AppDelegate {
                 child: withActions
                     ? Column(
                         mainAxisSize: MainAxisSize.min,
-                        children: child != null
-                            ? [child]
-                            : defaultPopUp.value +
-                                [
-                                  const SizedBox(
-                                    height: 16,
-                                  )
-                                ] +
-                                [
-                                  roundedButtons
-                                      ? Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            RoundedButton(
-                                                text: text1 ?? "Cancel",
-                                                onPressed: () {
-                                                  action1 != null
-                                                      ? action1()
-                                                      : Navigator.pop(context);
-                                                },
-                                                width: MediaQuery.of(context)
+                        children: (child != null
+                                ? [child]
+                                : defaultPopUp.value) +
+                            [
+                              const SizedBox(
+                                height: 16,
+                              )
+                            ] +
+                            [
+                              roundedButtons
+                                  ? Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        RoundedButton(
+                                            text: text1!,
+                                            onPressed: () {
+                                              action1 != null
+                                                  ? action1()
+                                                  : Navigator.pop(context);
+                                            },
+                                            width: text2 != null
+                                                ? MediaQuery.of(context)
                                                         .size
                                                         .width /
-                                                    3),
-                                            RoundedButton(
-                                                text: text2 ?? "Okay",
-                                                onPressed: () {
-                                                  action2 != null
-                                                      ? action2()
-                                                      : Navigator.pop(context);
-                                                },
-                                                width: MediaQuery.of(context)
+                                                    3
+                                                : MediaQuery.of(context)
                                                         .size
                                                         .width /
-                                                    3),
-                                          ],
-                                        )
-                                      : Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            AutoTextButton(text1 ?? "Cancel",
-                                                onPressed: () {
-                                              action1 ?? Navigator.pop(context);
-                                            }),
-                                            const SizedBox(
-                                              width: 8.0,
-                                            ),
-                                            AutoTextButton(text2 ?? "Okay",
-                                                onPressed: () {
-                                              action1 ?? Navigator.pop(context);
-                                            }),
-                                          ],
-                                        )
-                                ],
+                                                    2),
+                                        if (text2 != null) ...{
+                                          RoundedButton(
+                                              text: text2,
+                                              onPressed: () {
+                                                action2 != null
+                                                    ? action2()
+                                                    : Navigator.pop(context);
+                                              },
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width /
+                                                  3)
+                                        },
+                                      ],
+                                    )
+                                  : Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        AutoTextButton(text1 ?? "Cancel",
+                                            onPressed: () {
+                                          action1 ?? Navigator.pop(context);
+                                        }),
+                                        const SizedBox(
+                                          width: 8.0,
+                                        ),
+                                        AutoTextButton(text2 ?? "Okay",
+                                            onPressed: () {
+                                          action1 ?? Navigator.pop(context);
+                                        }),
+                                      ],
+                                    )
+                            ],
                       )
                     : child ??
                         Column(

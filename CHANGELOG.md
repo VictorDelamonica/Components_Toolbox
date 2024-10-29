@@ -1,3 +1,11 @@
+##  5.1.2
+
+* Fix `AppDelegate` popup
+
+##  5.1.1
+
+* Fix `actions` in `AppDelegate` popup
+
 ##  5.1.0
 
 * Fix `actions` in `AppDelegate` popup
