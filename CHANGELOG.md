@@ -1,3 +1,7 @@
+##  6.0.1
+
+* Fix `CustomBottomNivigationBar` label's style
+
 ##  6.0.0
 
 * Add `SpacedColumn` component

@@ -42,6 +42,12 @@ class CustomNavigationBar extends StatefulWidget {
   /// The background color of the navigation bar (optional).
   final Color? backgroundColor;
 
+  /// The font family to use when painting the text.
+  final String fontFamily;
+
+  /// The weight of the font.
+  final FontWeight? fontWeight;
+
   /// Creates a [CustomNavigationBar] widget.
   ///
   /// The [pages] and [currentIndex] parameters are required.
@@ -56,6 +62,8 @@ class CustomNavigationBar extends StatefulWidget {
     this.unselectedColors,
     this.backgroundColor,
     this.selectedIcons,
+    this.fontFamily = 'Roboto',
+    this.fontWeight,
   }) : assert(pages.length > 1 &&
             (style == NavigationBarStyle.classic
                 ? icons != null && labels != null
@@ -99,6 +107,18 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
               widget.currentIndex.value = index;
             });
           },
+          selectedLabelStyle: TextStyle(
+            // color: widget.selectedColors != null
+            //     ? widget.selectedColors![widget.currentIndex.value]
+            //     : Theme.of(context).primaryColor,
+            fontFamily: widget.fontFamily,
+            fontWeight: widget.fontWeight,
+          ),
+          unselectedLabelStyle: TextStyle(
+            // color: widget.unselectedColors ?? Colors.grey,
+            fontFamily: widget.fontFamily,
+            fontWeight: widget.fontWeight,
+          ),
           currentIndex: widget.currentIndex.value,
           selectedItemColor: widget.selectedColors != null
               ? widget.selectedColors![widget.currentIndex.value]
@@ -151,6 +171,18 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
             });
           },
           iconSize: 0,
+          selectedLabelStyle: TextStyle(
+            // color: widget.selectedColors != null
+            //     ? widget.selectedColors![widget.currentIndex.value]
+            //     : Theme.of(context).primaryColor,
+            fontFamily: widget.fontFamily,
+            fontWeight: widget.fontWeight,
+          ),
+          unselectedLabelStyle: TextStyle(
+            // color: widget.unselectedColors ?? Colors.grey,
+            fontFamily: widget.fontFamily,
+            fontWeight: widget.fontWeight,
+          ),
           currentIndex: widget.currentIndex.value,
           selectedItemColor: widget.selectedColors != null
               ? widget.selectedColors![widget.currentIndex.value]
@@ -195,6 +227,12 @@ class FloatingBottomNavigationBar extends StatefulWidget {
   /// Whether to display an app bar (optional).
   final bool withAppBar;
 
+  /// The font family to use when painting the text.
+  final String fontFamily;
+
+  /// The weight of the font.
+  final FontWeight? fontWeight;
+
   /// Creates a [FloatingBottomNavigationBar] widget.
   ///
   /// The [pages] and [currentPage] parameters are required.
@@ -210,6 +248,8 @@ class FloatingBottomNavigationBar extends StatefulWidget {
     this.icons,
     this.withAppBar = true,
     this.selectedIcons,
+    this.fontFamily = 'Roboto',
+    this.fontWeight,
   }) : assert(pages.length > 1 &&
             (style == NavigationBarStyle.classic
                 ? icons != null && labels != null
@@ -249,9 +289,11 @@ class _FloatingBottomNavigationBarState
                 icon: Icon(Icons.arrow_back,
                     color: _appDelegate.getColor("Text")),
               ),
-              title: const AutoText(
+              title: AutoText(
                 'Floating Bottom NavBar',
                 fontSize: 24,
+                fontWeight: widget.fontWeight,
+                fontFamily: widget.fontFamily,
               ),
               backgroundColor: _appDelegate.getColor("Background"),
             )
@@ -313,6 +355,8 @@ class _FloatingBottomNavigationBarState
                                               ? widget.color![index]
                                               : _appDelegate.getColor("Text")
                                           : _appDelegate.getColor("Grey"),
+                                      fontWeight: widget.fontWeight,
+                                      fontFamily: widget.fontFamily,
                                     ),
                                   ],
                                 )
@@ -338,6 +382,8 @@ class _FloatingBottomNavigationBarState
                                               ? widget.color![index]
                                               : _appDelegate.getColor("Text")
                                           : _appDelegate.getColor("Grey"),
+                                      fontWeight: widget.fontWeight,
+                                      fontFamily: widget.fontFamily,
                                     )),
                         )),
                   ),
