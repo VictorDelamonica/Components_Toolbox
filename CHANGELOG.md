@@ -1,3 +1,15 @@
+##  6.0.0
+
+* Add `SpacedColumn` component
+
+##  5.1.4
+
+* Fix `defaultPopUp` actions
+
+##  5.1.3
+
+* Add listener on `AutoScaleAnimatedColumn` to update the size of the list
+
 ##  5.1.2
 
 * Fix `AppDelegate` popup

@@ -78,6 +78,15 @@ class _AutoScaleAnimatedColumnState extends State<AutoScaleAnimatedColumn>
   }
 
   @override
+  void didUpdateWidget(AutoScaleAnimatedColumn oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.items.length != widget.items.length) {
+      _createAnimations();
+      _startAnimations();
+    }
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();

@@ -18,7 +18,7 @@ The toolbox class has the following components:
 - **AutoText**: A text that can be resized automatically.
 - **Custom Colors**: A class that can be used to set custom colors for the app.
 - **AutoScaleAnimatedColumn**: A column that can be animated and resized automatically.
-
+- **SpacedColumn**: A column that have a space between each child.
 
 ## Getting Started
 
@@ -28,7 +28,7 @@ To use this class, you need to add the following dependency in your pubspec.yaml
 dependencies:
   flutter:
     sdk: flutter
-  components_toolbox: ^5.1.2
+  components_toolbox: ^6.0.0
 ```
 
 Then, you need to import the class in your file:

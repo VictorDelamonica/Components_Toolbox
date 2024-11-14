@@ -245,14 +245,18 @@ class AppDelegate {
                                       children: [
                                         AutoTextButton(text1 ?? "Cancel",
                                             onPressed: () {
-                                          action1 ?? Navigator.pop(context);
+                                          action1 != null
+                                              ? action1()
+                                              : Navigator.pop(context);
                                         }),
                                         const SizedBox(
                                           width: 8.0,
                                         ),
                                         AutoTextButton(text2 ?? "Okay",
                                             onPressed: () {
-                                          action1 ?? Navigator.pop(context);
+                                          action2 != null
+                                              ? action2()
+                                              : Navigator.pop(context);
                                         }),
                                       ],
                                     )
