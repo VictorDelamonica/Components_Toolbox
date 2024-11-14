@@ -1,7 +1,13 @@
 // All rights reserved
 // Monikode Mobile Solutions
 // Created by MoniK on 2024.
+
+/// This library provides various components for the toolbox.
+///
+/// It includes widgets and utilities that can be used across the application.
 library components_toolbox;
+
+// Your existing imports and code here
 
 /// region Components
 export './components/auto_scale_animated_column.dart'
@@ -11,7 +17,7 @@ export './components/carousel.dart' show Carousel;
 export './components/loader.dart' show Loader;
 export './components/markdown_text.dart' show MarkdownText;
 export './components/navigation_bar.dart'
-    show CustomNavigationBar, NavigationBarStyle;
+    show CustomNavigationBar, NavigationBarStyle, FloatingBottomNavigationBar;
 export './components/rounded_buttons.dart'
     show
         RoundedButton,

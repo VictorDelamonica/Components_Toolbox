@@ -57,7 +57,7 @@ class CustomColors {
 
   /// Sets the color for a given custom color type.
   ///
-  /// [customColor] The type of custom color to set.
+  /// [colorType] The type of custom color to set.
   /// [color] The color to set for the given custom color type.
   static void setColor(CustomColor colorType, Color color) {
     switch (colorType) {
@@ -103,6 +103,10 @@ class CustomColors {
     colorNotifier.value = CustomColors();
   }
 
+  /// Resets all custom colors to their default values.
+  ///
+  /// This method sets each custom color to its predefined default value
+  /// and updates the `colorNotifier` to notify listeners of the change.
   static void resetColors() {
     appBar = const Color.fromRGBO(211, 233, 231, 1);
     background = const Color.fromRGBO(244, 246, 245, 1);
