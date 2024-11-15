@@ -1,3 +1,7 @@
+##  6.0.2
+
+* Fix `CustomBottomNivigationBar` index state
+
 ##  6.0.1
 
 * Fix `CustomBottomNivigationBar` label's style
