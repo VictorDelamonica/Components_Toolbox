@@ -84,6 +84,14 @@ class CustomNavigationBar extends StatefulWidget {
 
 class _CustomNavigationBarState extends State<CustomNavigationBar> {
   @override
+  void initState() {
+    widget.currentIndex.addListener(() {
+      setState(() {});
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     switch (widget.style) {
       case NavigationBarStyle.classic:

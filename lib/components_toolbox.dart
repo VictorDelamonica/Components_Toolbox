@@ -26,6 +26,7 @@ export './components/rounded_buttons.dart'
         CircleButton,
         AutoTextButton;
 export './components/rounded_container.dart' show RoundedContainer;
+export './components/spaced_column.dart' show SpacedColumn;
 export './components/text_field.dart' show CustomTextField;
 
 /// endregion
