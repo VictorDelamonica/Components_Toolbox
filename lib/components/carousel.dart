@@ -53,7 +53,7 @@ class Carousel extends StatefulWidget {
     required this.images,
     this.backgroundColor,
     this.currentPageIndicatorColor,
-    this.mainHeight = 400.0,
+    this.mainHeight = 420.0,
     this.previewHeight = 60.0,
     this.radius = 16,
     this.previewRadius = 16,

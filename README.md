@@ -38,8 +38,84 @@ import 'package:components_toolbox/components_toolbox.dart';
 ```
 
 ## Usage
-![light.png](assets%2Flight.png)
-![dark.png](assets%2Fdark.png)
+
+### Rounded Container
+
+[rounded_container.png](assets/rounded_container.png)
+
+```dart
+RoundedContainer(
+  child: Text('Hello World!'),
+),
+```
+
+### Text Field
+
+[custom_text_field.png](assets/custom_text_field.png)
+
+```dart
+const CustomTextField("Simple"),
+const SizedBox(height: 16),
+const CustomTextField(
+    "Obscure",
+    obscureText: true,
+),
+```
+
+### Rounded Button
+
+[rounded_button.png](assets/rounded_buttons.png)
+
+```dart
+Center(
+    child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child:Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+                RoundedButton(
+                    text: 'Simple',
+                    onPressed: () {},
+                    width: MediaQuery.of(context).size.width / 2 - 32,
+                ),
+                RoundedButton(
+                    text: 'Shadow',
+                    onPressed: () {},
+                    shadow: CustomShadows.regularCentered,
+                    width: MediaQuery.of(context).size.width / 2 - 32,
+                ),
+            ],
+        ),
+    ),
+),
+const SizedBox(height: 16),
+RoundedButtonWithIcons(
+    Icons.save,
+    text: "With Icon",
+    onPressed: () {},
+),
+const SizedBox(height: 16),
+Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+        Center(
+            child: OutlinedRoundedButton(
+                "Outlined",
+                onPressed: () {},
+                width: 150,
+            ),
+        ),
+        CircleButton(
+            icon: Icons.add,
+            onPressed: () {},
+        ),
+        AutoTextButton(
+            "TextButton",
+            onPressed: () {},
+        ),
+    ],
+),
+```
 
 ## Dependencies
 The project uses the following dependencies as specified in `pubspec.yaml`:
