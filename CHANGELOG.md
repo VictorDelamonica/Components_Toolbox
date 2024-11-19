@@ -1,3 +1,12 @@
+##  6.0.3+1
+
+* Improve Components documentations.
+* Minor fix on units tests.
+
+##  6.0.3
+
+* Fix `AutoScaleAnimatedColumn` inside `column`'s parameters
+
 ##  6.0.2
 
 * Fix `CustomBottomNivigationBar` index state

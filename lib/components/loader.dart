@@ -9,9 +9,9 @@ import 'package:flutter/material.dart';
 
 /// A widget that displays a loading indicator with a fade transition to a page.
 ///
-/// The `Loader` widget shows a loading indicator (either an icon, image, or
+/// The [Loader] widget shows a loading indicator (either an icon, image, or
 /// circular progress indicator) and transitions to the provided page with a
-/// fade effect when the `value` changes.
+/// fade effect when the [value] changes.
 class Loader extends StatefulWidget {
   /// A [ValueListenable] that controls the visibility of the loading indicator.
   final ValueListenable<bool> value;
@@ -40,9 +40,13 @@ class Loader extends StatefulWidget {
   /// The size of the image.
   final double? imageSize;
 
-  /// Creates a [Loader] widget.
+  /// A widget that displays a loading indicator with a fade transition to a page.
   ///
-  /// The [value] and [page] parameters are required.
+  /// The [Loader] widget shows a loading indicator (either an icon, image, or
+  /// circular progress indicator) and transitions to the provided page with a
+  /// fade effect when the [value] changes.
+  ///
+  /// The [value] and [page] parameters are required and must not be `null`.
   const Loader({
     super.key,
     required this.value,

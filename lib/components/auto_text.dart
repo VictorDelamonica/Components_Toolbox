@@ -4,10 +4,11 @@
 import 'package:components_toolbox/utils/app_delegate.dart';
 import 'package:flutter/material.dart';
 
-/// A widget that displays text with customizable style and appearance.
+/// A widget that displays text with customizable style and alignment.
 ///
-/// The `AutoText` widget listens to changes in the app's appearance and updates
-/// the text style accordingly.
+/// The [AutoText] widget allows you to display text with various styling options
+/// such as font size, font family, font weight, and text color. It also supports
+/// text alignment, maximum number of lines, and overflow handling.
 class AutoText extends StatefulWidget {
   /// The text to display.
   final String text;
@@ -36,9 +37,11 @@ class AutoText extends StatefulWidget {
   /// The color to use when painting the text.
   final Color? textColor;
 
-  /// Creates an `AutoText` widget.
+  /// A widget that displays text with customizable style and alignment.
   ///
-  /// The [text] parameter must not be null.
+  /// The [AutoText] widget allows you to display text with various styling options
+  /// such as [fontSize], [fontFamily], [fontWeight], and [textColor]. It also supports
+  /// [textAlign], [maxLines], and [overflow] handling.
   const AutoText(this.text,
       {super.key,
       this.style,
@@ -55,7 +58,6 @@ class AutoText extends StatefulWidget {
 }
 
 class _AutoTextState extends State<AutoText> {
-  /// An instance of `AppDelegate` to manage app-wide settings.
   final AppDelegate _appDelegate = AppDelegate.getInstance();
 
   @override

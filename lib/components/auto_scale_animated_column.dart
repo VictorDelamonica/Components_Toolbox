@@ -1,22 +1,56 @@
 // All rights reserved
-// Monikode Mobile Solutions and Draw Your Fight
+// Monikode Mobile Solutions
 // Created by MoniK on 2024.
 import 'package:flutter/material.dart';
 
+/// A widget that displays a column of items with animations for slide and fade effects.
+///
+/// The [AutoScaleAnimatedColumn] widget animates its children with a slide and fade effect.
+/// The animations are controlled by [AnimationController]s and can be customized with various parameters.
 class AutoScaleAnimatedColumn extends StatefulWidget {
+  /// The list of widgets to be displayed in the column.
   final List<Widget> items;
+
+  /// The duration of the animations.
   final Duration? duration;
+
+  /// The padding around the column.
   final EdgeInsets? padding;
+
+  /// The horizontal spacing between the items.
   final double? horizontalSpacing;
+
+  /// The margin around the column.
   final EdgeInsets? margin;
+
+  /// The offset for the slide animation.
   final Offset? offset;
+
+  /// The initial opacity for the fade animation.
   final double? opacity;
+
+  /// How the children should be placed along the main axis.
   final MainAxisAlignment mainAxisAlignment;
+
+  /// How much space should be occupied in the main axis.
   final MainAxisSize mainAxisSize;
+
+  /// How the children should be placed along the cross axis.
   final CrossAxisAlignment crossAxisAlignment;
+
+  /// The text direction for the column.
   final TextDirection? textDirection;
+
+  /// The vertical direction for the column.
   final VerticalDirection verticalDirection;
+
+  /// The text baseline for aligning text.
   final TextBaseline? textBaseline;
+
+  /// A widget that displays a column of items with animations for slide and fade effects.
+  ///
+  /// The [AutoScaleAnimatedColumn] widget animates its children with a slide and fade effect.
+  /// The animations are controlled by [AnimationController]s and can be customized with various parameters.
   const AutoScaleAnimatedColumn({
     super.key,
     required this.items,
@@ -46,7 +80,8 @@ class _AutoScaleAnimatedColumnState extends State<AutoScaleAnimatedColumn>
   late List<Animation<Offset>> _slideAnimation;
   late List<Animation<double>> _opacityAnimation;
 
-  _createAnimations() {
+  /// Creates the animations for the slide and fade effects.
+  void _createAnimations() {
     _controllers = List.generate(widget.items.length, (index) {
       return AnimationController(
         vsync: this,
@@ -73,7 +108,8 @@ class _AutoScaleAnimatedColumnState extends State<AutoScaleAnimatedColumn>
     });
   }
 
-  _startAnimations() async {
+  /// Starts the animations sequentially with a delay.
+  Future<void> _startAnimations() async {
     for (var i = 0; i < widget.items.length; i++) {
       await Future.delayed(
           widget.duration ?? const Duration(milliseconds: 500));

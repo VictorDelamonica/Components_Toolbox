@@ -48,7 +48,7 @@ class CustomNavigationBar extends StatefulWidget {
   /// The weight of the font.
   final FontWeight? fontWeight;
 
-  /// Creates a [CustomNavigationBar] widget.
+  /// A custom navigation bar widget that supports different styles.
   ///
   /// The [pages] and [currentIndex] parameters are required.
   const CustomNavigationBar({

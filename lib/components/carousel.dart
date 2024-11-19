@@ -47,7 +47,7 @@ class Carousel extends StatefulWidget {
   /// The curve of the page transition animation.
   final Curve? curve;
 
-  /// Creates a [Carousel] widget.
+  /// A widget that displays a carousel of images with a preview and page indicator.
   const Carousel({
     super.key,
     required this.images,

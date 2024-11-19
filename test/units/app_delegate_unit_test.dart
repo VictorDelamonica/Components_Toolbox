@@ -5,9 +5,11 @@ import 'package:components_toolbox/utils/app_delegate.dart';
 import 'package:components_toolbox/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences.setMockInitialValues({});
   test(
     'Get the instance of the AppDelegate',
     () => {

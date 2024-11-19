@@ -32,7 +32,7 @@ class CustomTextField extends StatefulWidget {
   final TextCapitalization textCapitalization;
   final EdgeInsetsGeometry edgeInsetsGeometry;
 
-  /// Creates a `CustomTextField` widget.
+  /// A custom text field widget with various customization options.
   ///
   /// The [label] parameter must not be null.
   const CustomTextField(

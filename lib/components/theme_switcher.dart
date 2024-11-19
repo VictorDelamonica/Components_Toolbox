@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 /// A widget that allows switching between light and dark themes.
 ///
-/// The `ThemeSwitcher` widget provides a UI element to toggle between light and dark
+/// The [ThemeSwitcher] widget provides a UI element to toggle between light and dark
 /// themes. It supports different styles such as icons and switches.
 class ThemeSwitcher extends StatefulWidget {
   /// The style of the theme switcher.
@@ -39,9 +39,10 @@ class ThemeSwitcher extends StatefulWidget {
   /// The font weight for the text in the switcher.
   final FontWeight? fontWeight;
 
-  /// Creates a [ThemeSwitcher] widget.
+  /// A widget that allows switching between light and dark themes.
   ///
-  /// The [style] parameter is required.
+  /// The [ThemeSwitcher] widget provides a UI element to toggle between light and dark
+  /// themes. It supports different styles such as icons and switches.
   const ThemeSwitcher({
     super.key,
     this.style = ThemeSwitcherStyle.icons,

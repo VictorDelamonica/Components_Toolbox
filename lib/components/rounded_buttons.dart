@@ -45,7 +45,7 @@ class RoundedButton extends StatefulWidget {
   /// The boolean value to check if the button is disabled.
   final bool isDisabled;
 
-  /// Creates a `RoundedButton` widget.
+  /// A customizable rounded button widget with optional icon and shadow.
   ///
   /// The [onPressed] parameter must not be null.
   /// The [text] parameter must not be empty if [icon] is null.

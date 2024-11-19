@@ -37,7 +37,7 @@ class RoundedContainer extends StatefulWidget {
   /// The duration of the animation.
   final Duration? duration;
 
-  /// Creates a `RoundedContainer` widget.
+  /// A widget that displays a rounded container with customizable properties.
   ///
   /// The [child] parameter must not be null.
   const RoundedContainer({
