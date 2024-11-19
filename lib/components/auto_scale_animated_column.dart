@@ -11,6 +11,12 @@ class AutoScaleAnimatedColumn extends StatefulWidget {
   final EdgeInsets? margin;
   final Offset? offset;
   final double? opacity;
+  final MainAxisAlignment mainAxisAlignment;
+  final MainAxisSize mainAxisSize;
+  final CrossAxisAlignment crossAxisAlignment;
+  final TextDirection? textDirection;
+  final VerticalDirection verticalDirection;
+  final TextBaseline? textBaseline;
   const AutoScaleAnimatedColumn({
     super.key,
     required this.items,
@@ -20,6 +26,12 @@ class AutoScaleAnimatedColumn extends StatefulWidget {
     this.margin,
     this.offset,
     this.opacity,
+    this.mainAxisAlignment = MainAxisAlignment.start,
+    this.mainAxisSize = MainAxisSize.max,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
+    this.textDirection,
+    this.verticalDirection = VerticalDirection.down,
+    this.textBaseline,
   });
 
   @override
@@ -98,6 +110,12 @@ class _AutoScaleAnimatedColumnState extends State<AutoScaleAnimatedColumn>
       padding: widget.padding ?? const EdgeInsets.all(0.0),
       margin: widget.margin ?? const EdgeInsets.all(0.0),
       child: Column(
+        mainAxisAlignment: widget.mainAxisAlignment,
+        mainAxisSize: widget.mainAxisSize,
+        crossAxisAlignment: widget.crossAxisAlignment,
+        textDirection: widget.textDirection,
+        verticalDirection: widget.verticalDirection,
+        textBaseline: widget.textBaseline,
         children: List.generate(widget.items.length, (index) {
           return Padding(
             padding: EdgeInsets.symmetric(
