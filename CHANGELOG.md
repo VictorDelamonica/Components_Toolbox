@@ -1,3 +1,15 @@
+##  6.0.5
+
+* Fix `MarkdownText` `textAlign` parameter
+
+##  6.0.4
+
+* Fix `AutoScaleAnimatedColumn` property
+
+##  6.0.3+2
+
+* Improve README documentations.
+
 ##  6.0.3+1
 
 * Improve Components documentations.
