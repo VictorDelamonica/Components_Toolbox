@@ -28,7 +28,7 @@ To use this class, you need to add the following dependency in your pubspec.yaml
 dependencies:
   flutter:
     sdk: flutter
-  components_toolbox: ^6.0.3+1
+  components_toolbox: ^6.0.5
 ```
 
 Then, you need to import the class in your file:
@@ -41,7 +41,7 @@ import 'package:components_toolbox/components_toolbox.dart';
 
 ### Rounded Container
 
-[rounded_container.png](assets/rounded_container.png)
+![rounded_container.png](assets/rounded_container.png)
 
 ```dart
 RoundedContainer(
@@ -51,7 +51,7 @@ RoundedContainer(
 
 ### Text Field
 
-[custom_text_field.png](assets/custom_text_field.png)
+![custom_text_field.png](assets/custom_text_field.png)
 
 ```dart
 const CustomTextField("Simple"),
@@ -64,7 +64,7 @@ const CustomTextField(
 
 ### Rounded Button
 
-[rounded_button.png](assets/rounded_buttons.png)
+![rounded_button.png](assets/rounded_buttons.png)
 
 ```dart
 Center(

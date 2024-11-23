@@ -18,19 +18,24 @@ class MarkdownText extends StatefulWidget {
   /// The font family to use when painting the text.
   final String fontFamily;
 
+  /// The alignment of the text.
+  final TextAlign textAlign;
+
   /// A widget that displays a list of paragraphs with markdown-like bold text.
   ///
   /// The [MarkdownText] widget takes a list of paragraphs and displays them
   /// with bold text for any text enclosed in double asterisks (**).
   ///
-  /// The [paragraphs] parameter must not be null.
-  /// The [fontSize] parameter defaults to 16.0 if not provided.
-  /// The [fontFamily] parameter defaults to "Roboto" if not provided.
+  /// The [paragraphs] parameter [must not be null].
+  /// The [fontSize] parameter defaults to [16.0] if not provided.
+  /// The [fontFamily] parameter defaults to ["Roboto"] if not provided.
+  /// The [textAlign] parameter defaults to [TextAlign.left] if not provided.
   const MarkdownText({
     super.key,
     required this.paragraphs,
     this.fontSize = 16.0,
     this.fontFamily = "Roboto",
+    this.textAlign = TextAlign.left,
   });
 
   @override
@@ -80,7 +85,7 @@ class _MarkdownTextState extends State<MarkdownText> {
       builder: (context, value, child) {
         _buildSpans();
         return RichText(
-          textAlign: TextAlign.justify,
+          textAlign: widget.textAlign,
           text: TextSpan(
             children: spans,
             style: TextStyle(

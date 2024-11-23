@@ -17,8 +17,8 @@ class AutoScaleAnimatedColumn extends StatefulWidget {
   /// The padding around the column.
   final EdgeInsets? padding;
 
-  /// The horizontal spacing between the items.
-  final double? horizontalSpacing;
+  /// The vertical spacing between the items.
+  final double? verticalSpacing;
 
   /// The margin around the column.
   final EdgeInsets? margin;
@@ -56,7 +56,7 @@ class AutoScaleAnimatedColumn extends StatefulWidget {
     required this.items,
     this.duration,
     this.padding,
-    this.horizontalSpacing,
+    this.verticalSpacing,
     this.margin,
     this.offset,
     this.opacity,
@@ -154,8 +154,8 @@ class _AutoScaleAnimatedColumnState extends State<AutoScaleAnimatedColumn>
         textBaseline: widget.textBaseline,
         children: List.generate(widget.items.length, (index) {
           return Padding(
-            padding: EdgeInsets.symmetric(
-                vertical: widget.horizontalSpacing ?? 16.0),
+            padding:
+                EdgeInsets.symmetric(vertical: widget.verticalSpacing ?? 16.0),
             child: FadeTransition(
               opacity: _opacityAnimation[index],
               child: SlideTransition(
