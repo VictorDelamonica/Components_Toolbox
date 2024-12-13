@@ -1,3 +1,7 @@
+##  6.0.6
+
+* Add `border` in `RoundedButton`
+
 ##  6.0.5
 
 * Fix `MarkdownText` `textAlign` parameter
