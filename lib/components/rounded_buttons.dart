@@ -24,6 +24,12 @@ class RoundedButton extends StatefulWidget {
   /// The background color of the button.
   final Color? color;
 
+  /// The border color of the button.
+  final Color? borderColor;
+
+  /// The border width of the button.
+  final double? borderWidth;
+
   /// The color of the text on the button.
   final Color? textColor;
 
@@ -56,6 +62,8 @@ class RoundedButton extends StatefulWidget {
     this.width,
     this.height,
     this.color,
+    this.borderColor,
+    this.borderWidth,
     this.textColor,
     this.icon,
     this.iconSize,
@@ -91,6 +99,12 @@ class _RoundedButtonState extends State<RoundedButton>
         radius: widget.radius,
         shadow: widget.shadow,
         padding: 0.0,
+        border: widget.borderColor != null
+            ? Border.all(
+                color: widget.borderColor!,
+                width: widget.borderWidth ?? 1.0,
+              )
+            : null,
         child: Material(
           color: Colors.transparent,
           child: widget.isDisabled
@@ -144,6 +158,8 @@ class RoundedButtonWithIcons extends RoundedButton {
     super.width,
     super.height,
     super.color,
+    super.borderColor,
+    super.borderWidth,
     super.textColor,
     this.iconSize = 24,
     this.iconColor,
@@ -169,6 +185,12 @@ class _RoundedButtonWithIconsState extends _RoundedButtonState {
           : widget.color ?? _appDelegate.getColor("AppBar"),
       radius: widget.radius,
       shadow: widget.shadow,
+      border: widget.borderColor != null
+          ? Border.all(
+              color: widget.borderColor!,
+              width: widget.borderWidth ?? 1.0,
+            )
+          : null,
       padding: 0.0,
       child: Material(
         color: Colors.transparent,
@@ -226,6 +248,8 @@ class OutlinedRoundedButton extends RoundedButton {
     super.width,
     super.height,
     super.color,
+    super.borderColor,
+    super.borderWidth,
     super.textColor,
     super.icon,
     super.iconSize,
@@ -250,7 +274,8 @@ class _OutlinedRoundedButtonState extends _RoundedButtonState {
       border: Border.all(
         color: widget.isDisabled
             ? _appDelegate.getColor("Grey")
-            : widget.color ?? _appDelegate.getColor("Text"),
+            : widget.borderColor ?? _appDelegate.getColor("AppBar"),
+        width: widget.borderWidth ?? 1.0,
       ),
       radius: widget.radius,
       shadow: widget.shadow,
@@ -313,6 +338,8 @@ class CircleButton extends RoundedButton {
     super.width,
     super.height,
     super.color,
+    super.borderColor,
+    super.borderWidth,
     super.textColor,
     super.icon,
     super.iconSize,
@@ -339,6 +366,10 @@ class _CircleButtonState extends _RoundedButtonState {
           : widget.color ?? _appDelegate.getColor("AppBar"),
       radius: widget.radius,
       shadow: widget.shadow,
+      border: Border.all(
+        color: widget.borderColor ?? _appDelegate.getColor("AppBar"),
+        width: widget.borderWidth ?? 1.0,
+      ),
       padding: 0.0,
       child: widget.isDisabled
           ? Center(
