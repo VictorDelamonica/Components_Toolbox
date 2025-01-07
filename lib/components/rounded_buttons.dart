@@ -121,9 +121,11 @@ class _RoundedButtonState extends State<RoundedButton>
                     widget.onPressed();
                   },
                   child: Center(
-                    child: AutoText(
-                      widget.text,
-                      textColor: widget.textColor,
+                    child: FittedBox(
+                      child: AutoText(
+                        widget.text,
+                        textColor: widget.textColor,
+                      ),
                     ),
                   ),
                 ),
