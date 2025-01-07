@@ -28,7 +28,7 @@ To use this class, you need to add the following dependency in your pubspec.yaml
 dependencies:
   flutter:
     sdk: flutter
-  components_toolbox: ^6.0.7
+  components_toolbox: ^7.0.0
 ```
 
 Then, you need to import the class in your file:

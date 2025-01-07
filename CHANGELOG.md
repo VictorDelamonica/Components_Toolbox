@@ -1,3 +1,7 @@
+##  7.0.0
+
+* Add `AppLocalizations` class to handle the app's translations (doc in progress)
+
 ##  6.0.7
 
 * Fix text size in `RoundedButton` with a `FitBox` widget
