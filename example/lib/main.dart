@@ -2,12 +2,18 @@
 // Monikode Mobile Solutions
 // Created by MoniK on 2024.
 import 'package:components_toolbox/components_toolbox.dart';
+import 'package:components_toolbox/utils/app_localizations.dart';
 import 'package:example/bottom_nav_bar_example.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await AppDelegate.getInstance().setStoredAppearance();
+  // AppDelegate.getInstance().defaultLocale.value = 'en';
+  List<String> locales = [];
+  AppDelegate.getInstance().localesString.value =
+      await AppLocalizations.getSupportedLocales(locales);
   AppDelegate.getInstance().defaultPopUp.value = [
     const AutoText(
       "This is the PopUp",
@@ -31,8 +37,24 @@ class ExampleApp extends StatefulWidget {
 class _ExampleAppState extends State<ExampleApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomeExample(),
+    return MaterialApp(
+      supportedLocales: AppDelegate.getInstance().locale.value,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      localeResolutionCallback: (deviceLocale, supportedLocales) {
+        for (var locale in supportedLocales) {
+          if (deviceLocale != null &&
+              deviceLocale.languageCode == locale.languageCode) {
+            return deviceLocale;
+          }
+        }
+        return supportedLocales.first;
+      },
+      home: const HomeExample(),
     );
   }
 }
@@ -127,6 +149,7 @@ class _HomeExampleState extends State<HomeExample>
                   'Change custom colors:',
                   fontSize: 24,
                 ),
+                AutoText("test".tr(context)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[

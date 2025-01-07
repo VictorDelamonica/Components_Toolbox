@@ -19,6 +19,17 @@ class AppDelegate {
   /// Notifies listeners of changes in the app's for the popUp
   ValueNotifier<List<Widget>> defaultPopUp = ValueNotifier([const SizedBox()]);
 
+  ValueNotifier<List<String>> localesString = ValueNotifier([]);
+  ValueNotifier<List<Locale>> get locale {
+    var result = ValueNotifier(
+      localesString.value.map((e) => Locale(e)).toList(),
+    );
+    if (result.value.isEmpty) {
+      result = ValueNotifier([Locale(defaultLocale.value)]);
+    }
+    return result;
+  }
+
   /// A map of color schemes for different UI elements in light and dark modes.
   Map<String, dynamic> colors = {
     "AppBar": {
@@ -69,6 +80,8 @@ class AppDelegate {
       colorNotifier.value = CustomColors();
     });
   }
+
+  ValueNotifier<String> defaultLocale = ValueNotifier("fr");
 
   /// Returns the singleton instance of `AppDelegate`.
   ///
