@@ -1,3 +1,7 @@
+##  6.0.7
+
+* Fix text size in `RoundedButton` with a `FitBox` widget
+
 ##  6.0.6
 
 * Add `border` in `RoundedButton`

@@ -97,8 +97,6 @@ class CustomColors {
       case CustomColor.invertedText:
         invertedText = color;
         break;
-      default:
-        break;
     }
     colorNotifier.value = CustomColors();
   }

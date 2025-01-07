@@ -1,7 +1,6 @@
 // All rights reserved
 // Monikode Mobile Solutions
 // Created by MoniK on 2024.
-import 'package:components_toolbox/components/navigation_bar.dart';
 import 'package:components_toolbox/components_toolbox.dart';
 import 'package:example/bottom_nav_bar_example.dart';
 import 'package:flutter/material.dart';

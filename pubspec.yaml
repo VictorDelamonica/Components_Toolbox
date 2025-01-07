@@ -2,7 +2,7 @@ name: components_toolbox
 description: A basic Toolbox for Flutter components with AppDelegate to manage the light and dark theme.
 repository: https://github.com/VictorDelamonica/Components_Toolbox.git
 homepage: https://www.monikode.com
-version: 6.0.6
+version: 6.0.7
 
 environment:
   sdk: '>=3.3.1 <4.0.0'

@@ -33,7 +33,7 @@ class CustomShadows {
       Offset offset = const Offset(2, 4)}) {
     final AppDelegate appDelegate = AppDelegate.getInstance();
     return BoxShadow(
-      color: appDelegate.getColor("Text").withOpacity(opacity),
+      color: appDelegate.getColor("Text").withValues(alpha: opacity),
       blurRadius: blurRadius,
       offset: offset,
     );
