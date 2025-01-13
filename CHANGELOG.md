@@ -1,3 +1,7 @@
+##  7.0.0+1
+
+* Revert migration to `withValue` for colors
+
 ##  7.0.0
 
 * Add `AppLocalizations` class to handle the app's translations (doc in progress)
